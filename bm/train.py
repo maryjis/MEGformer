@@ -117,6 +117,9 @@ def get_solver(args: tp.Any, training=True):
             params += list(feature_model.parameters())
         if optargs.name == "adam":
             optimizer = torch.optim.Adam(params, lr=optargs.lr, betas=(0.9, optargs.beta2))
+        elif optargs.name == "adamw":
+            print("Initialize AdamW")
+            optimizer = torch.optim.AdamW(params, lr=optargs.lr, betas=(0.9, optargs.beta2), weight_decay=optargs.weight_decay)
         else:
             raise ValueError(f'Invalid optimizer {args.optim}')
 

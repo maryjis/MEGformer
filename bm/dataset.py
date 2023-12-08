@@ -66,6 +66,9 @@ class _DatasetFactory:
             decim: int = 1,
             sample_rate: float = studies.schoffelen2019.RAW_SAMPLE_RATE,
             highpass: float = 0,
+            bandpass: bool = False,
+            bandpass_high: float = 0,
+            bandpass_lower: float = 0,
             features: tp.Sequence[str] = ("WordLength", "WordFrequency"),
             features_params: tp.Optional[dict] = None,
             ignore_end_in_block: bool = False,
@@ -83,6 +86,9 @@ class _DatasetFactory:
         self.baseline = baseline
         self.sample_rate = int(round(sample_rate))
         self.highpass = highpass
+        self.bandpass = bandpass
+        self.bandpass_high = bandpass_high
+        self.bandpass_lower = bandpass_lower
         self.ignore_end_in_block = ignore_end_in_block
         self.ignore_start_in_block = ignore_start_in_block
         self.event_mask = event_mask
@@ -108,6 +114,11 @@ class _DatasetFactory:
         if blocks is not None and not blocks:
             raise ValueError("No blocks provided.")
         data = recording.preprocessed(self.sample_rate, highpass=self.highpass)
+        
+        if self.bandpass:
+            data.load_data()
+            data=data.filter(self.bandpass_high, self.bandpass_lower, fir_design='firwin')  
+                      
         sample_rate = Frequency(data.info["sfreq"])
         assert int(sample_rate) == int(self.sample_rate)
         if isinstance(self.condition, str):
@@ -416,6 +427,9 @@ def get_datasets(
         valid_ratio: float,
         sample_rate: int = studies.schoffelen2019.RAW_SAMPLE_RATE,  # FIXME
         highpass: float = 0,
+        bandpass: bool = False,
+        bandpass_high: float = 0,
+        bandpass_lower: float = 0,
         num_workers: int = 10,
         apply_baseline: bool = True,
         progress: bool = False,
@@ -470,6 +484,7 @@ def get_datasets(
     # create datasets through factory, split them and concatenate
     meg_dimension = max(recording.meg_dimension for recording in all_recordings)
     factory_kwargs.update(sample_rate=sample_rate, highpass=highpass, meg_dimension=meg_dimension,
+                          bandpass=bandpass, bandpass_high=bandpass_high, bandpass_lower=bandpass_lower,
                           baseline=(None, 0) if apply_baseline else None)
     fact = SegmentDataset.Factory(features=features, **factory_kwargs)
     for key, value in test.items():

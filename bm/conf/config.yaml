@@ -9,14 +9,14 @@ defaults:
 
 # Wandb config
 wandb:
-  use_wandb: false
+  use_wandb: true
   project: brainmagick
   group: brainmagick-group
 
 # Logging and printing, and does not impact training
 num_prints: 5
-device: cuda
-num_workers: 2
+device: cuda:1
+num_workers: 1
 verbose: 0
 show: 0   # just show the model and its size and exit
 download_only: false  # if set to true, will stop immediately after having prepared the dataset.
@@ -47,6 +47,7 @@ optim:
   epochs: 40
   batch_size: 32
   loss: l1
+  weight_decay: 0.0
   use_weighting: false  # Use weighting for loss on categorical features
   max_batches:          # maximum number of updates per epoch.
   svd: 0.
@@ -100,6 +101,9 @@ dset:
   ignore_start_in_block: false  # Same but for the beginning of a segment (e.g. [tmin, 0]).
   sample_rate: 120              # All studies will be resampled to that many Hertz.
   highpass: 0                   # Highpass filter in Hz.
+  bandpass: false                # if True, bandpass filter is applying
+  bandpass_high: 0.0
+  bandpass_lower: 0.0
   event_mask: true              # If true, returns a mask indicating when a stimulus occurs in epoch.
                                 # For non contrastive losses, only compute the loss where the mask is True.
   split_wav_as_block: true      # Split wav files into smaller chunks that do not overlap block boundaries.
