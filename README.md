@@ -293,3 +293,7 @@ If you use this code or results in your paper, please cite our work as:
 [gwilliams]: https://www.nature.com/articles/s41467-022-34326-1
 [hydra]: https://hydra.cc/docs/intro/
 [dora]: https://github.com/facebookresearch/dora
+
+## Debug
+
+python -m debugpy --listen 0.0.0.0:5679 -m bm.train

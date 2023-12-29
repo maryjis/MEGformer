@@ -33,3 +33,5 @@ def explorer(launcher):
             sub()
             sub({'optim.name': 'adamw', 'optim.weight_decay': 0.1})
             sub({'dset.tmin' : -0.2 , 'dset.tmax': 0.8})
+            sub({'dset.tmin' : -0.75 , 'dset.tmax': 3.25})
+            sub({'dset.tmin' : -1.25 , 'dset.tmax': 5.75})
