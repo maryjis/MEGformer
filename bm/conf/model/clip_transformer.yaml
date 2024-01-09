@@ -2,7 +2,7 @@
 
 num_workers: 5
 
-model_name: simpleconv
+model_name: simpletransformer
 simpleconv:
   hidden:
     meg: 320

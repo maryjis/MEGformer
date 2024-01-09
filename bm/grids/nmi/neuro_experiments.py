@@ -35,3 +35,4 @@ def explorer(launcher):
             sub({'dset.tmin' : -0.2 , 'dset.tmax': 0.8})
             sub({'dset.tmin' : -0.75 , 'dset.tmax': 3.25})
             sub({'dset.tmin' : -1.25 , 'dset.tmax': 5.75})
+            sub({'dset.tmin' : -1.75 , 'dset.tmax': 1.75})

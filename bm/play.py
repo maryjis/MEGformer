@@ -50,6 +50,7 @@ def get_solver_from_xp(xp: XP, override_cfg: tp.Optional[dict] = None):
     override_args_(args)
     if override_cfg is not None:
         args = OmegaConf.merge(args, DictConfig(override_cfg))
+    print(args)
     with env.temporary_from_args(args):
         try:
             with xp.enter():

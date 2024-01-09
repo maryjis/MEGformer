@@ -35,7 +35,7 @@ dummy:  # use this if you want twice the same exp, with a different name
 cache: ./cache
 features_models: ./features_models
 early_stop_patience: 10  # number of epochs to wait before early stop
-eval_every: 20
+eval_every: 1
 eval_train_set: false   # also evaluates on the train set for debugging.
 
 

@@ -12,3 +12,4 @@ and SimpleConv is the one used in the NMI paper, https://arxiv.org/abs/2208.1226
 from .convrnn import ConvRNN
 from .simpleconv import SimpleConv
 from .features import DeepMel
+from .simpletransformer import SimpleTransformer
