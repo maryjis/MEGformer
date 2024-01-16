@@ -123,6 +123,8 @@ class Solver(flashy.BaseSolver):
             'num_workers': self.args.num_workers,
             'collate_fn': SegmentBatch.collate_fn,
         }
+        # print(self.args.optim.batch_size)
+        # print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
         defaults.update(kwargs)
         if can_be_distributed:
             return flashy.distrib.loader(dataset, **defaults)

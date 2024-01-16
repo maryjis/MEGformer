@@ -11,12 +11,14 @@ defaults:
 wandb:
   use_wandb: true
   project: brainmagick
-  group: brainmagick-group
+  group: brainmagick_preproc_10
+  name: brainmagick_10_0.5_0.5
+  job_type: length 
 
 # Logging and printing, and does not impact training
 num_prints: 5
-device: cuda:1
-num_workers: 1
+device: cuda:2 
+num_workers: 8
 verbose: 0
 show: 0   # just show the model and its size and exit
 download_only: false  # if set to true, will stop immediately after having prepared the dataset.
@@ -26,7 +28,7 @@ slurm:
   mem_per_gpu: 100
   time: 4320
 
-continue_sig:        # Dora signature of the XP to continue from.
+continue_sig:  false      # Dora signature of the XP to continue from.
 continue_best: true  # continue from best, not last state if continue_from is set.
 
 # Other stuff
@@ -74,8 +76,10 @@ test:
 dset:
   selections:
     - gwilliams2022
-  tmin: -0.5
-  tmax: 2.5
+  # tmin: -0.5
+  # tmax: 2.5
+  tmin: -5.0
+  tmax: 5.0
   n_recordings: 1000
   n_subjects:                   # If provided, will take recordings so have no more
                                 #   than  that many subjects.

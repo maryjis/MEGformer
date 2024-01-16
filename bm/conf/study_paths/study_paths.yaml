@@ -1,7 +1,7 @@
 # specificy the data paths here
 default:
-  gwilliams2022: ./data/gwilliams2022/
-  schoffelen2019: ./data/schoffelen2019/
-  brennan2019: ./data/brennan2019/
-  broderick2019: ./data/broderick2019/
+  gwilliams2022: /home/druzhinina/data/meg_data/gwilliams2022/
+  schoffelen2019: /home/druzhinina/data/meg_data/schoffelen2019/
+  brennan2019: /home/druzhinina/data/meg_data/brennan2019/
+  broderick2019: /home/druzhinina/data/meg_data/broderick2019/
 # Add more hostnames below

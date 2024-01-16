@@ -17,7 +17,6 @@ import hydra
 import mne
 from omegaconf import OmegaConf
 import torch
-
 from . import dataset as dset
 from .models import ConvRNN, SimpleConv, DeepMel
 from .solver import Solver
@@ -174,7 +173,7 @@ def override_args_(args: tp.Any):
 @hydra_main(config_name="config", config_path="conf", version_base="1.1")
 def main(args: tp.Any) -> float:
     override_args_(args)
-
+    print(args)
     global __file__  # pylint: disable=global-statement,redefined-builtin
     # Fix bug when using multiprocessing with Hydra
     __file__ = hydra.utils.to_absolute_path(__file__)

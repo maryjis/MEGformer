@@ -41,7 +41,7 @@ class _DatasetFactory:
     condition: str or float
         Either an event in the condition columns of metadata, or a stride in seconds, or a full
         pandas query (if it contains "=").
-    tmin: float
+    tmin: float_DatasetFactory
         Start time with respect to the events.
     tmax: float
         End time with respect to the events.

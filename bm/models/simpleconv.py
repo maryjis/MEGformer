@@ -244,6 +244,6 @@ class SimpleConv(nn.Module):
         if self.dual_path is not None:
             x = self.dual_path(x)
         if self.final is not None:
-            x = self.final(x)
+           x = self.final(x)
         assert x.shape[-1] >= length
         return x[:, :, :length]
