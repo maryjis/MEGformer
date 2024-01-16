@@ -18,7 +18,7 @@ def explorer(launcher):
         constraint="volta32gb",
     )
     launcher.bind_({
-        'model': 'clip_conv',
+        'model': 'clip_transformer',
     })
 
     seeds = [2036, 2037, 2038]
@@ -37,3 +37,5 @@ def explorer(launcher):
             sub({'dset.tmin' : -1.25 , 'dset.tmax': 5.75})
             sub({'dset.tmin' : -1.75 , 'dset.tmax': 1.75})
             sub({'optim.shuffle' : True})
+            sub({'simpletransformer.subject_layers' : True, 'simpletransformer.positional_embedding': True})
+            sub({'simpletransformer.subject_layers' : True, 'simpletransformer.positional_embedding': True, 'simpletransformer.depth' : 8, 'simpletransformer.nhead' : 8})

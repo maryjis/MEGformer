@@ -1,6 +1,6 @@
 # @package _global_
 
-model_name: simpleconv
+model_name: simpletransformer
 
 convrnn:
   # Overall
@@ -81,3 +81,9 @@ simpleconv:
   initial_depth: 1
   initial_nonlin: false
 
+simpletransformer:
+  hidden:
+    meg: 320
+  depth: 4
+  nhead: 8
+  subject_layers: false

@@ -19,7 +19,7 @@ from omegaconf import OmegaConf
 import torch
 
 from . import dataset as dset
-from .models import ConvRNN, SimpleConv, DeepMel
+from .models import ConvRNN, SimpleConv, DeepMel,SimpleTransformer
 from .solver import Solver
 
 logger = logging.getLogger(__name__)
@@ -42,6 +42,7 @@ def get_solver(args: tp.Any, training=True):
         args.num_workers = min(10, 2 * args.optim.batch_size)
 
     assert args.dset.sample_rate is not None, "sample rate <= 1200 required"
+    #print(args)
     kwargs: tp.Dict[str, tp.Any]
     kwargs = OmegaConf.to_container(args.dset, resolve=True)  # type: ignore
     selections = [args.selections[x] for x in args.dset.selections]
@@ -84,6 +85,10 @@ def get_solver(args: tp.Any, training=True):
     elif args.model_name == "simpleconv":
         model = SimpleConv(in_channels=in_channels, out_channels=model_chout,
                            n_subjects=n_subjects, **args.simpleconv)
+    elif args.model_name == "simpletransformer":
+        print("Simple Transformer: ")
+        model = SimpleTransformer(in_channels=in_channels, out_channels=model_chout,
+                           n_subjects=n_subjects, **args.simpletransformer)    
     else:
         raise ValueError(f"Invalid model {args.model}")
     model.to(args.device)
@@ -173,6 +178,7 @@ def override_args_(args: tp.Any):
 
 @hydra_main(config_name="config", config_path="conf", version_base="1.1")
 def main(args: tp.Any) -> float:
+    print(args)
     override_args_(args)
 
     global __file__  # pylint: disable=global-statement,redefined-builtin

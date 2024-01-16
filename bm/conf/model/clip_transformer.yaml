@@ -3,23 +3,14 @@
 num_workers: 5
 
 model_name: simpletransformer
-simpleconv:
+
+simpletransformer:
   hidden:
     meg: 320
-  batch_norm: true
-  depth: 10
-  dilation_period: 5
-  kernel_size: 3
-  skip: true
-  subject_layers: true
-  subject_dim: 0
-  complex_out: true
-  glu: 2
-  glu_context: 1
-  merger: true
-  initial_linear: 270
-  gelu: true
-  merger_pos_dim: 2048
+  depth: 4
+  nhead: 8
+  subject_layers: false
+  positional_embedding: false
 
 optim:
   loss: clip

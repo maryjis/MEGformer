@@ -42,6 +42,7 @@ eval_train_set: false   # also evaluates on the train set for debugging.
 # Optimization related
 optim:
   name: adam
+  shuffle: false
   lr: 3e-4
   beta2: 0.999
   epochs: 40
