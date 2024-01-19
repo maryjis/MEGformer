@@ -19,7 +19,7 @@ from omegaconf import OmegaConf
 import torch
 
 from . import dataset as dset
-from .models import ConvRNN, SimpleConv, DeepMel,SimpleTransformer
+from .models import ConvRNN, SimpleConv, DeepMel,SimpleTransformer, ConvWave
 from .solver import Solver
 
 logger = logging.getLogger(__name__)
@@ -85,10 +85,12 @@ def get_solver(args: tp.Any, training=True):
     elif args.model_name == "simpleconv":
         model = SimpleConv(in_channels=in_channels, out_channels=model_chout,
                            n_subjects=n_subjects, **args.simpleconv)
+        print(model)
     elif args.model_name == "simpletransformer":
         print("Simple Transformer: ")
         model = SimpleTransformer(in_channels=in_channels, out_channels=model_chout,
-                           n_subjects=n_subjects, **args.simpletransformer)    
+                           n_subjects=n_subjects, **args.simpletransformer)
+        print(model)    
     else:
         raise ValueError(f"Invalid model {args.model}")
     model.to(args.device)
@@ -98,6 +100,9 @@ def get_solver(args: tp.Any, training=True):
         feature_model_params = args.feature_model_params
         if args.feature_model_name == "deep_mel":
             feature_model = DeepMel(**feature_model_params, n_in_channels=chout)
+        elif args.feature_model_name == "conv_wave":
+            feature_model = ConvWave(**feature_model_params)
+            print(feature_model)
         else:
             raise ValueError(f"Invalid feature model {args.feature_model_name}.")
 

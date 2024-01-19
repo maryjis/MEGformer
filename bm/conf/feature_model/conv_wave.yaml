@@ -1,0 +1,11 @@
+# @package _global_
+
+feature_model_name: conv_wave
+feature_model_params:
+  input_channels: 1024
+  kernel_sizes:  [3,3]
+  strides: [1,1]
+  adaptive_pool : false
+  adaptive_pooling_size:  1
+  n_out_channels: 512
+  dropout_value: 0.0

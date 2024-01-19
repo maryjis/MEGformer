@@ -80,6 +80,10 @@ simpleconv:
   initial_linear: 0  # initial linear for comparison
   initial_depth: 1
   initial_nonlin: false
+  avg_pool_out: False 
+  adaptive_pooling_size: 1,
+  flatten_out_channels: 512
+  strides: [1,1,1,1,1,1,1,1,1,1]
 
 simpletransformer:
   hidden:
