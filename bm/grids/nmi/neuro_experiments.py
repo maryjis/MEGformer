@@ -37,3 +37,4 @@ def explorer(launcher):
             sub({'dset.tmin' : -1.25 , 'dset.tmax': 5.75})
             sub({'dset.tmin' : -1.75 , 'dset.tmax': 1.75})
             sub({'optim.shuffle' : True})
+            sub({'simpleconv.conv_dropout' : 0.2 , 'simpleconv.depth': 6})

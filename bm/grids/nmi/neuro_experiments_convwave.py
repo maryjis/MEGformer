@@ -43,8 +43,18 @@ def explorer(launcher):
             sub({'simpleconv.flatten_out': True, 'simpleconv.complex_out' : False, 'feature_model_params.dropout_value' : 0.3,
                  'feature_model_params.n_out_channels' : 64, 'simpleconv.flatten_out_channels': 64})
             sub({'simpleconv.flatten_out': True, 'simpleconv.complex_out' : False, 'feature_model_params.dropout_value' : 0.3,
+                 'feature_model_params.n_out_channels' : 64, 'simpleconv.flatten_out_channels': 64, 'simpleconv.conv_dropout' : 0.2})
+            sub({'simpleconv.flatten_out': True, 'simpleconv.complex_out' : False, 'feature_model_params.dropout_value' : 0.3,
                  'feature_model_params.n_out_channels' : 32, 'simpleconv.flatten_out_channels': 32})
             sub({'simpleconv.flatten_out': True, 'simpleconv.complex_out' : False, 'feature_model_params.dropout_value' : 0.3,
                  'feature_model_params.n_out_channels' : 1, 'simpleconv.flatten_out_channels': 1})
+            sub({'simpleconv.flatten_out': True, 'simpleconv.complex_out' : False, 'feature_model_params.dropout_value' : 0.3,
+                 'feature_model_params.n_out_channels' : 64, 'simpleconv.flatten_out_channels': 64, 'simpleconv.conv_dropout' : 0.2 , 'simpleconv.depth': 8})
+            sub({'simpleconv.flatten_out': True, 'simpleconv.complex_out' : False, 'feature_model_params.dropout_value' : 0.3,
+                 'feature_model_params.n_out_channels' : 64, 'simpleconv.flatten_out_channels': 64, 'simpleconv.conv_dropout' : 0.2 , 'simpleconv.depth': 6})
+            sub({'simpleconv.flatten_out': True, 'simpleconv.complex_out' : False, 'feature_model_params.dropout_value' : 0.3,
+                 'feature_model_params.n_out_channels' : 64, 'simpleconv.flatten_out_channels': 64, 'simpleconv.conv_dropout' : 0.2 , 'simpleconv.depth': 4})
+            sub({'simpleconv.flatten_out': True, 'simpleconv.complex_out' : False, 'feature_model_params.dropout_value' : 0.3,
+                 'feature_model_params.n_out_channels' : 32, 'simpleconv.flatten_out_channels': 32, 'simpleconv.conv_dropout' : 0.2 , 'simpleconv.depth': 6})
             
             

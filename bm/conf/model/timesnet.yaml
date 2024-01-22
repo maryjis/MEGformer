@@ -2,14 +2,19 @@
 
 num_workers: 5
 
-model_name: simpletransformer
+model_name: timesnet
 
-simpletransformer:
+timesnet:
   hidden:
     meg: 320
-  depth: 4
-  nhead: 8
+  depth: 2
   subject_layers: false
+  sequence_lenth: 361  
+  num_kernels: 6
+  top_k: 3
+  dropout_projection: 0.3
+  d_model: 32
+  d_ff: 32
 
 optim:
   loss: clip
