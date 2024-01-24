@@ -19,7 +19,7 @@ from omegaconf import OmegaConf
 import torch
 
 from . import dataset as dset
-from .models import ConvRNN, SimpleConv, DeepMel,SimpleTransformer, ConvWave
+from .models import ConvRNN, SimpleConv, DeepMel,SimpleTransformer, ConvWave, TimesNet
 from .solver import Solver
 
 logger = logging.getLogger(__name__)
@@ -90,7 +90,12 @@ def get_solver(args: tp.Any, training=True):
         print("Simple Transformer: ")
         model = SimpleTransformer(in_channels=in_channels, out_channels=model_chout,
                            n_subjects=n_subjects, **args.simpletransformer)
-        print(model)    
+        print(model)
+    elif args.model_name == "timesnet":
+        print("TimesNet: ")
+        model = TimesNet(in_channels=in_channels, out_channels=model_chout,
+                           n_subjects=n_subjects, **args.timesnet)
+        print(model)           
     else:
         raise ValueError(f"Invalid model {args.model}")
     model.to(args.device)

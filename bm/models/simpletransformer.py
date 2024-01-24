@@ -5,7 +5,7 @@ import torch
 from torch import nn, Tensor
 from torch.nn import functional as F
 import torchaudio as ta
-from .common import SubjectLayers
+from .common import SubjectLayers, ChannelMerger
 
 class PositionalEncoding(nn.Module):
 
@@ -43,6 +43,12 @@ class SimpleTransformer(nn.Module):
                  subject_dim: int = 64,
                  subject_layers_dim: str = "input",  # or hidden
                  subject_layers_id: bool = False,
+                 merger: bool = False,
+                 merger_pos_dim: int = 256,
+                 merger_channels: int = 270,
+                 merger_dropout: float = 0.2,
+                 merger_penalty: float = 0.,
+                 merger_per_subject: bool = False,
                  nhead: int =8,
                  depth: int = 4):
         super().__init__()
@@ -55,6 +61,15 @@ class SimpleTransformer(nn.Module):
         self.nhead =nhead
         self.layers =[]
         self.subject_layers = None
+        
+        self.merger = None
+  
+        if merger:
+            self.merger = ChannelMerger(
+                merger_channels, pos_dim=merger_pos_dim, dropout=merger_dropout,
+            usage_penalty=merger_penalty, n_subjects=n_subjects, per_subject=merger_per_subject)
+        in_channels["meg"] = merger_channels
+                
         if subject_layers:
             assert "meg" in in_channels
             meg_dim = in_channels["meg"]
@@ -76,6 +91,8 @@ class SimpleTransformer(nn.Module):
         
     def forward(self, inputs, batch):
         subjects = batch.subject_index
+        if self.merger is not None:
+                inputs["meg"] = self.merger(inputs["meg"], batch)       
         if self.subject_layers is not None:
             inputs["meg"] = self.subject_layers(inputs["meg"], subjects)
         if self.positional_embedding is not None:

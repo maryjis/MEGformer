@@ -5,7 +5,7 @@ import torch.fft
 from torch.nn.utils import weight_norm
 import math
 import typing as tp
-
+from .common import SubjectLayers, ChannelMerger
 
 class PositionalEmbedding(nn.Module):
     def __init__(self, d_model, max_len=5000):
@@ -232,19 +232,34 @@ class TimesNet(nn.Module):
                  subject_dim: int = 64,
                  subject_layers_dim: str = "input",  # or hidden
                  subject_layers_id: bool = False,
+                 # Attention multi-dataset support
+                 merger: bool = False,
+                 merger_pos_dim: int = 256,
+                 merger_channels: int = 270,
+                 merger_dropout: float = 0.2,
+                 merger_penalty: float = 0.,
+                 merger_per_subject: bool = False,
                  sequence_lenth: int = 361,   
                  num_kernels: int = 6,
                  top_k: int = 10,
                  dropout_projection: float = 0.2,
                  d_model: int = 32, 
                  d_ff: int = 32 ,
+                 flatten_out_channels: int =1024,
                  depth: int =2
                  ):
             super().__init__()
             self.sequence_lenth = sequence_lenth
-            self.enc_embedding = DataEmbedding(in_channels["meg"], d_model)
             self.delta = 0
-            self.depth = depth
+            self.depth = depth            
+            self.merger = None
+  
+            if merger:
+                self.merger = ChannelMerger(
+                    merger_channels, pos_dim=merger_pos_dim, dropout=merger_dropout,
+                    usage_penalty=merger_penalty, n_subjects=n_subjects, per_subject=merger_per_subject)
+                in_channels["meg"] = merger_channels
+            
             self.subject_layers =None
             
             if subject_layers:
@@ -253,6 +268,8 @@ class TimesNet(nn.Module):
                 dim = {"hidden": hidden["meg"], "input": meg_dim}[subject_layers_dim]
                 self.subject_layers = SubjectLayers(meg_dim, dim, n_subjects, subject_layers_id)
                 in_channels["meg"] = dim
+                    
+            self.enc_embedding = DataEmbedding(in_channels["meg"], d_model)
             
             self.model = nn.ModuleList([TimesBlock(sequence_lenth,
                                                     d_model,
@@ -263,30 +280,35 @@ class TimesNet(nn.Module):
             self.layer_norm = nn.LayerNorm(d_model)
             self.act = F.gelu
             self.dropout = nn.Dropout(dropout_projection)
-            self.projection = nn.Linear(d_model, out_channels)
+            self.projection = nn.Linear(d_model, flatten_out_channels)
         
     def crop_or_pad(self, x):
             length = x.size(-1)
             self.delta = self.sequence_lenth - length
             if length<self.sequence_lenth:
-                return F.pad(x, (0, delta))
+                return F.pad(x, (0, self.delta))
             elif length > self.sequence_lenth:
-                return x[:, :, :length]
+                return x[:, :, :self.sequence_lenth]
             else:
                 return x
         
     def forward(self,inputs, batch):
         
             subjects = batch.subject_index
-            #subject layer    
+            length = next(iter(inputs.values())).shape[-1]  # length of any of the inputs
+            #subject layer  
+            if self.merger is not None:
+                inputs["meg"] = self.merger(inputs["meg"], batch)
+                
             if self.subject_layers is not None:
                 inputs["meg"] = self.subject_layers(inputs["meg"], subjects)
-                
-            x =inputs['meg'].permute(0, 2, 1)    
+
+            x =self.crop_or_pad(inputs['meg'])
+            x =x.permute(0, 2, 1)  
             # embedding
             if self.enc_embedding is not None:
                 x= self.enc_embedding(x, None)  # [B,T,C]
-                 
+                   
             # TimesNet
             for i in range(self.depth):
                 enc_out = self.layer_norm(self.model[i](x))
@@ -297,4 +319,8 @@ class TimesNet(nn.Module):
             output = self.dropout(output)
             # project back  #[B,T,d_model]-->[B,T,c_out]
             output = self.projection(output) 
-            return output.permute(0, 2, 1)   
+            output = output.permute(0, 2, 1)
+            if self.delta>=0:
+                return output[:, :, :length]
+            else:
+                return F.interpolate(output, length)[0] 

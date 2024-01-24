@@ -9,12 +9,15 @@ timesnet:
     meg: 320
   depth: 2
   subject_layers: false
+  merger: false
+  merger_pos_dim: 2048
   sequence_lenth: 361  
   num_kernels: 6
   top_k: 3
   dropout_projection: 0.3
   d_model: 32
   d_ff: 32
+  flatten_out_channels: 1024
 
 optim:
   loss: clip

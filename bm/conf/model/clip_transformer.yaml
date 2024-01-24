@@ -10,6 +10,9 @@ simpletransformer:
   depth: 4
   nhead: 8
   subject_layers: false
+  positional_embedding: false
+  merger: false
+  merger_pos_dim: 2048
 
 optim:
   loss: clip
