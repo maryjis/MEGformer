@@ -95,6 +95,9 @@ simpletransformer:
   merger: false
   merger_pos_dim: 2048
   merger_channels: 272
+  model_type: basic
+  dim_ff: 2048
+  attention_window: [32,32,32,32]
 
 timesnet:
   hidden:
@@ -110,3 +113,5 @@ timesnet:
   flatten_out_channels: 1024
   merger: false
   merger_pos_dim: 2048
+  merger_channels: 270
+  enc_embedding: true

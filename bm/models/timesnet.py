@@ -239,6 +239,7 @@ class TimesNet(nn.Module):
                  merger_dropout: float = 0.2,
                  merger_penalty: float = 0.,
                  merger_per_subject: bool = False,
+                 enc_embedding: bool =True,
                  sequence_lenth: int = 361,   
                  num_kernels: int = 6,
                  top_k: int = 10,
@@ -260,16 +261,17 @@ class TimesNet(nn.Module):
                     usage_penalty=merger_penalty, n_subjects=n_subjects, per_subject=merger_per_subject)
                 in_channels["meg"] = merger_channels
             
-            self.subject_layers =None
-            
+            self.subject_layers = None
+            self.enc_embedding = None 
             if subject_layers:
                 assert "meg" in in_channels
                 meg_dim = in_channels["meg"]
                 dim = {"hidden": hidden["meg"], "input": meg_dim}[subject_layers_dim]
                 self.subject_layers = SubjectLayers(meg_dim, dim, n_subjects, subject_layers_id)
                 in_channels["meg"] = dim
-                    
-            self.enc_embedding = DataEmbedding(in_channels["meg"], d_model)
+                
+            if enc_embedding:        
+                self.enc_embedding = DataEmbedding(in_channels["meg"], d_model)
             
             self.model = nn.ModuleList([TimesBlock(sequence_lenth,
                                                     d_model,

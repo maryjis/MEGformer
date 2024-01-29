@@ -13,6 +13,9 @@ simpletransformer:
   positional_embedding: false
   merger: false
   merger_pos_dim: 2048
+  model_type: basic
+  dim_ff: 2048
+  attention_window: [32,32,32,32]
 
 optim:
   loss: clip

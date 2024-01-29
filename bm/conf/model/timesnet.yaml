@@ -18,6 +18,7 @@ timesnet:
   d_model: 32
   d_ff: 32
   flatten_out_channels: 1024
+  enc_embedding: true
 
 optim:
   loss: clip

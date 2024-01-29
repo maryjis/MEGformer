@@ -39,5 +39,6 @@ def explorer(launcher):
             sub({'optim.shuffle' : True})
             sub({'simpletransformer.subject_layers' : True, 'simpletransformer.positional_embedding': True})
             sub({'simpletransformer.subject_layers' : True, 'simpletransformer.positional_embedding': True, 'simpletransformer.merger' : True})
+            sub({'simpletransformer.subject_layers' : True, 'simpletransformer.positional_embedding': True, 'simpletransformer.merger' : True , 'simpletransformer.model_type': 'logformer'})
             sub({'simpletransformer.subject_layers' : True, 'simpletransformer.positional_embedding': True, 'simpletransformer.depth' : 8, 'simpletransformer.nhead' : 8})
             
