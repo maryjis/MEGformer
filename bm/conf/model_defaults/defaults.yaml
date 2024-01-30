@@ -80,6 +80,10 @@ simpleconv:
   initial_linear: 0  # initial linear for comparison
   initial_depth: 1
   initial_nonlin: false
+  avg_pool_out: False 
+  adaptive_pooling_size: 1,
+  flatten_out_channels: 512
+  strides: [1,1,1,1,1,1,1,1,1,1]
 
 simpletransformer:
   hidden:
@@ -87,3 +91,27 @@ simpletransformer:
   depth: 4
   nhead: 8
   subject_layers: false
+  positional_embedding: false
+  merger: false
+  merger_pos_dim: 2048
+  merger_channels: 272
+  model_type: basic
+  dim_ff: 2048
+  attention_window: [32,32,32,32]
+
+timesnet:
+  hidden:
+    meg: 320
+  depth: 2
+  subject_layers: false
+  sequence_lenth: 361  
+  num_kernels: 6
+  top_k: 3
+  dropout_projection: 0.3
+  d_model: 32
+  d_ff: 32
+  flatten_out_channels: 1024
+  merger: false
+  merger_pos_dim: 2048
+  merger_channels: 270
+  enc_embedding: true

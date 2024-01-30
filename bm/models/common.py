@@ -79,7 +79,7 @@ class LayerScale(nn.Module):
 class ConvSequence(nn.Module):
 
     def __init__(self, channels: tp.Sequence[int], kernel: int = 4, dilation_growth: int = 1,
-                 dilation_period: tp.Optional[int] = None, stride: int = 2,
+                 dilation_period: tp.Optional[int] = None, strides: tp.Sequence[int] =[1,1,1,1],
                  dropout: float = 0.0, leakiness: float = 0.0, groups: int = 1,
                  decode: bool = False, batch_norm: bool = False, dropout_input: float = 0,
                  skip: bool = False, scale: tp.Optional[float] = None, rewrite: bool = False,
@@ -110,7 +110,7 @@ class ConvSequence(nn.Module):
             if dilation_period and (k % dilation_period) == 0:
                 dilation = 1
             pad = kernel // 2 * dilation
-            layers.append(Conv(chin, chout, kernel, stride, pad,
+            layers.append(Conv(chin, chout, kernel, strides[k], pad,
                                dilation=dilation, groups=groups if k > 0 else 1))
             dilation *= dilation_growth
             # non-linearity

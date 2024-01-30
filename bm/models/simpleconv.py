@@ -30,6 +30,10 @@ class SimpleConv(nn.Module):
                  concatenate: bool = False,  # concatenate the inputs
                  linear_out: bool = False,
                  complex_out: bool = False,
+                 avg_pool_out: bool = False ,
+                 flatten_out: bool = False,
+                 adaptive_pooling_size: int = 1,
+                 flatten_out_channels : int = 1024,
                  # Conv layer
                  kernel_size: int = 5,
                  growth: float = 1.,
@@ -57,6 +61,7 @@ class SimpleConv(nn.Module):
                  subject_layers: bool = False,
                  subject_layers_dim: str = "input",  # or hidden
                  subject_layers_id: bool = False,
+                 strides: tp.Sequence[int] =[1,1,1,1],
                  embedding_scale: float = 1.0,
                  # stft transform
                  n_fft: tp.Optional[int] = None,
@@ -91,6 +96,7 @@ class SimpleConv(nn.Module):
 
         assert kernel_size % 2 == 1, "For padding to work, this must be verified"
 
+        self.strides = strides
         self.merger = None
         self.dropout = None
         self.subsampled_meg_channels: tp.Optional[list] = None
@@ -159,7 +165,7 @@ class SimpleConv(nn.Module):
             sizes[name] += [int(round(hidden[name] * growth ** k)) for k in range(depth)]
 
         params: tp.Dict[str, tp.Any]
-        params = dict(kernel=kernel_size, stride=1,
+        params = dict(kernel=kernel_size, strides=self.strides,
                       leakiness=relu_leakiness, dropout=conv_dropout, dropout_input=dropout_input,
                       batch_norm=batch_norm, dilation_growth=dilation_growth, groups=groups,
                       dilation_period=dilation_period, skip=skip, post_skip=post_skip, scale=scale,
@@ -178,7 +184,10 @@ class SimpleConv(nn.Module):
             pad = n_fft // 4
             kernel = n_fft
             stride = n_fft // 2
-
+            
+        self.avg_pool_out = avg_pool_out
+        if flatten_out:
+              out_channels =  flatten_out_channels 
         if linear_out:
             assert not complex_out
             self.final = nn.ConvTranspose1d(final_channels, out_channels, kernel, stride, pad)
@@ -187,6 +196,10 @@ class SimpleConv(nn.Module):
                 nn.Conv1d(final_channels, 2 * final_channels, 1),
                 activation(),
                 nn.ConvTranspose1d(2 * final_channels, out_channels, kernel, stride, pad))
+        elif avg_pool_out:
+            self.adaptive_pooling_size =adaptive_pooling_size
+            self.final_conv = nn.Conv1d(final_channels,flatten_out_channels, 3,1,1)
+            self.avg_pool = nn.AdaptiveAvgPool1d(output_size=self.adaptive_pooling_size)
         else:
             assert len(sizes) == 1, "if no linear_out, there must be a single branch."
             params['activation_on_last'] = False
@@ -243,7 +256,13 @@ class SimpleConv(nn.Module):
         x = torch.cat(inputs, dim=1)
         if self.dual_path is not None:
             x = self.dual_path(x)
+        if self.avg_pool_out:
+            x =self.final_conv(x)
+            x = self.avg_pool(x)
         if self.final is not None:
             x = self.final(x)
-        assert x.shape[-1] >= length
-        return x[:, :, :length]
+        if self.avg_pool_out:
+            return x
+        else:
+            assert x.shape[-1] >= length
+            return x[:, :, :length]

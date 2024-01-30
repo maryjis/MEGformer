@@ -20,6 +20,12 @@ simpleconv:
   initial_linear: 270
   gelu: true
   merger_pos_dim: 2048
+  avg_pool_out: False 
+  adaptive_pooling_size: 1
+  flatten_out: False
+  flatten_out_channels: 512
+  strides: [1,1,1,1,1,1,1,1,1,1]
+  conv_dropout: 0.0
 
 optim:
   loss: clip
