@@ -7,7 +7,6 @@
 import torch
 import torch.nn.functional as F
 
-
 class _MaskedLoss(torch.nn.Module):
     def forward(self, estimate, output, mask=None):
         feature_mask = mask.expand_as(estimate)
@@ -30,7 +29,7 @@ class ClipLoss(torch.nn.Module):
     """CLIP (See Open AI CLIP) constrastive loss.
     """
     def __init__(self, linear=None, twin=True, pool=False, tmin=None, tmax=None,
-                 tmin_train=None, tmax_train=None, dset_args=None, center=False):
+                 tmin_train=None, tmax_train=None, dset_args=None, center=False, probabilities =False):
         super().__init__()
         self.linear = None
         self.pool = pool
@@ -46,6 +45,7 @@ class ClipLoss(torch.nn.Module):
         self.tmin_train = tmin_train
         self.tmax_train = tmax_train
         self.dset_args = dset_args
+        self.probabilities =probabilities
 
     def trim_samples(self, estimates, candidates):
         """Given estimates that is [B1, C, T] and candidates
@@ -110,7 +110,14 @@ class ClipLoss(torch.nn.Module):
         assert mask.all(), "mask is not supported for now"
         assert estimate.size(0) <= candidate.size(0), "need at least as many targets as estimates"
         scores = self.get_scores(estimate, candidate)
-        target = torch.arange(len(scores), device=estimate.device)
+        if self.probabilities:
+            attn =F.conv1d(candidate[:estimate.size(0),0,:].unsqueeze(1),
+                           candidate[:,0,:].unsqueeze(1),
+                           padding=candidate.shape[-1])
+            values, _ =torch.max(attn, axis=-1)
+            target =torch.softmax(values, axis=-1)
+        else:
+            target = torch.arange(len(scores), device=estimate.device)
         return F.cross_entropy(scores, target)
 
 

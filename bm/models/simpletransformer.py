@@ -133,7 +133,7 @@ class SimpleTransformer(nn.Module):
         if self.model_type == "basic":
             x =self.layers(x)
         elif self.model_type == "longformer":
-            attention_mask =torch.ones(x.size()[:-1])
+            attention_mask =torch.zeros(x.size()[:-1])
             is_index_global_attn = attention_mask > 0
             is_global_attn = is_index_global_attn.flatten().any().item()
             for layer in self.layers:

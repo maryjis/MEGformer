@@ -15,7 +15,7 @@ wandb:
 
 # Logging and printing, and does not impact training
 num_prints: 5
-device: cuda:2
+device: cuda:1
 num_workers: 1
 verbose: 0
 show: 0   # just show the model and its size and exit
@@ -64,6 +64,7 @@ clip:
   tmin_train:
   tmax_train:
   center: false
+  probabilities: false
 
 test:
   wer_negatives: 10_000    # maximum number of negatives for evaluation
