@@ -21,3 +21,4 @@ resources
 *.egg-info
 draft_notebooks/
 submitit_*/
+/wandb
