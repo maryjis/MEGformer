@@ -34,8 +34,9 @@ class SimpleConv(nn.Module):
                  flatten_out: bool = False,
                  adaptive_pooling_size: int = 1,
                  flatten_out_channels : int = 1024,
+                 seq_len: int = -1,
                  # Conv layer
-                 kernel_size: int = 5,
+                 kernel_size: tp.Sequence[int] =[5, 5, 5, 5],
                  growth: float = 1.,
                  dilation_growth: int = 2,
                  dilation_period: tp.Optional[int] = None,
@@ -62,6 +63,8 @@ class SimpleConv(nn.Module):
                  subject_layers_dim: str = "input",  # or hidden
                  subject_layers_id: bool = False,
                  strides: tp.Sequence[int] =[1,1,1,1],
+                 padding: tp.Sequence[int] =[0, 0, 0, 0],
+                 auto_padding: bool = True,
                  embedding_scale: float = 1.0,
                  # stft transform
                  n_fft: tp.Optional[int] = None,
@@ -94,8 +97,9 @@ class SimpleConv(nn.Module):
         else:
             activation = nn.ReLU
 
-        assert kernel_size % 2 == 1, "For padding to work, this must be verified"
-
+        assert kernel_size[0] % 2 == 1, "For padding to work, this must be verified"
+        
+        self.sequence_lenth =seq_len
         self.strides = strides
         self.merger = None
         self.dropout = None
@@ -165,11 +169,11 @@ class SimpleConv(nn.Module):
             sizes[name] += [int(round(hidden[name] * growth ** k)) for k in range(depth)]
 
         params: tp.Dict[str, tp.Any]
-        params = dict(kernel=kernel_size, strides=self.strides,
+        params = dict(kernel=kernel_size, strides=self.strides,padding =padding,
                       leakiness=relu_leakiness, dropout=conv_dropout, dropout_input=dropout_input,
                       batch_norm=batch_norm, dilation_growth=dilation_growth, groups=groups,
                       dilation_period=dilation_period, skip=skip, post_skip=post_skip, scale=scale,
-                      rewrite=rewrite, glu=glu, glu_context=glu_context, glu_glu=glu_glu,
+                      rewrite=rewrite, glu=glu, glu_context=glu_context, glu_glu=glu_glu, auto_padding = auto_padding,
                       activation=activation)
 
         final_channels = sum([x[-1] for x in sizes.values()])
@@ -207,11 +211,23 @@ class SimpleConv(nn.Module):
 
         self.encoders = nn.ModuleDict({name: ConvSequence(channels, **params)
                                        for name, channels in sizes.items()})
+        
+    def crop_or_pad(self, x):
+            print("Crop & pad: ",self.sequence_lenth)
+            length = x.size(-1)
+            self.delta = self.sequence_lenth - length
+            if length<self.sequence_lenth:
+                return F.pad(x, (0, self.delta))
+            elif length > self.sequence_lenth:
+                return x[:, :, :self.sequence_lenth]
+            else:
+                return x    
 
     def forward(self, inputs, batch):
         subjects = batch.subject_index
         length = next(iter(inputs.values())).shape[-1]  # length of any of the inputs
-
+        if self.sequence_lenth>0:
+            inputs["meg"] =self.crop_or_pad(inputs["meg"])
         if self.subsampled_meg_channels is not None:
             mask = torch.zeros_like(inputs["meg"][:1, :, :1])
             mask[:, self.subsampled_meg_channels] = 1.
@@ -264,5 +280,5 @@ class SimpleConv(nn.Module):
         if self.avg_pool_out:
             return x
         else:
-            assert x.shape[-1] >= length
+            #assert x.shape[-1] >= length
             return x[:, :, :length]

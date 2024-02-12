@@ -26,5 +26,7 @@ dset:
       layers: [14, 15, 16, 17, 18]
       device: cpu
       random: false
+      is_interpolate: true
+      size : 150
     Wav2VecChunk:
       device: cpu

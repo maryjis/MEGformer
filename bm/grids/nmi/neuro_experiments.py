@@ -39,3 +39,25 @@ def explorer(launcher):
             sub({'optim.shuffle' : True})
             sub({'simpleconv.conv_dropout' : 0.2 , 'simpleconv.depth': 6})
             sub({'clip.probabilities': True})
+            sub({'simpleconv.strides': [2,1,1,1,1,1,1,1,1,1], 
+                 'simpleconv.kernel_size' : [7,7,5,5,5,3,3,3,3,3], 
+                 'simpleconv.padding' : [0,0,0,0,0,0,0,0,0,0,0,0], 
+                 'simpleconv.seq_len' : 361,
+                 'simpleconv.auto_padding' : False, 
+                 'dset.features_params.Wav2VecTransformer.is_interpolate' : False , 'simpleconv.dilation_period' : 1, 'task.offset_meg_ms' : 0})
+            sub({'simpleconv.strides': [1,1,1,1,1,1,1,1,1,1], 
+                 'simpleconv.kernel_size' : [3,3,3,3,3,3,3,3,3,3], 
+                 'simpleconv.padding' : [1,1,1,1,1,1,1,1,1,1], 
+                 'simpleconv.seq_len' : 361,
+                 'simpleconv.auto_padding' : False, 
+                 'dset.features_params.Wav2VecTransformer.is_interpolate' : False , 'simpleconv.dilation_period' : 1, 'task.offset_meg_ms' : 0, 'dset.features_params.Wav2VecTransformer.size' :361})
+            sub({'simpleconv.strides': [1,1,1,1,1,1,1,1,1,1], 
+                 'simpleconv.kernel_size' : [3,3,3,3,3,3,3,3,3,3], 
+                 'simpleconv.padding' : [1,1,1,1,1,1,1,1,1,1], 
+                 'simpleconv.seq_len' : 361,
+                 'simpleconv.auto_padding' : False, 
+                 'dset.features_params.Wav2VecTransformer.is_interpolate' : False , 'simpleconv.dilation_period' : 5, 'task.offset_meg_ms' : 0, 'dset.features_params.Wav2VecTransformer.size' :361})
+            sub({'dset.sample_rate' : 240})
+            sub({'simpleconv.dilation_period' : 1})
+            sub({'simpleconv.seq_len' : 361})
+            sub({'simpleconv.seq_len' : 361, 'dset.features_params.Wav2VecTransformer.is_interpolate' : False ,'dset.features_params.Wav2VecTransformer.size' :361 })

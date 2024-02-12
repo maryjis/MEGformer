@@ -75,8 +75,13 @@ class FeaturesBuilder(OrderedDict):  # type: ignore
             sample_rate = self.sample_rate
 
         n_times = sample_rate.to_ind(stop - start)
-        data = torch.zeros((self.dimension, n_times), dtype=torch.float32)
-        mask = torch.zeros((1, n_times), dtype=torch.float32)
+        if self.features_params["Wav2VecTransformer"]["is_interpolate"]:
+            data = torch.zeros((self.dimension, n_times), dtype=torch.float32)
+            mask = torch.zeros((1, n_times), dtype=torch.float32)
+        else:
+            data = torch.zeros((self.dimension, self.features_params["Wav2VecTransformer"]['size']), dtype=torch.float32)
+            mask = torch.ones((1, self.features_params["Wav2VecTransformer"]['size']), dtype=torch.float32)
+       
         select = np.logical_and(self.events._stop >= start, self.events.start < stop)
         events = self.events.loc[select, :]
 
@@ -104,17 +109,27 @@ class FeaturesBuilder(OrderedDict):  # type: ignore
 
                     assert overlap.duration_ind >= 1
                     val = feature.get_on_overlap(event, overlap)
-                    data[self.get_slice(feature.name), overlap.slice_in_parent()] = val
-
+                    if feature.name =="Wav2VecTransformer" and self.features_params[feature.name]["is_interpolate"]:
+                        data[self.get_slice(feature.name), overlap.slice_in_parent()] = val
+                    elif feature.name =="Wav2VecTransformer":
+                        ## TODO fix it somehow
+                        if val is not None:
+                            if val.shape[-1]>=self.features_params["Wav2VecTransformer"]['size']:
+                                data[self.get_slice(feature.name), 0:self.features_params["Wav2VecTransformer"]['size']] = val[:,:self.features_params["Wav2VecTransformer"]['size']] 
+                            else:
+                                data[self.get_slice(feature.name), 0:self.features_params["Wav2VecTransformer"]['size']] = F.interpolate(val[None], self.features_params["Wav2VecTransformer"]['size'])[0]      
+                    else:
+                        data[self.get_slice(feature.name), overlap.slice_in_parent()] = val
+                        
             # Populates mask which indicates non-silent parts of the epoch (ones that contain
             # a stimulus).
-            if self.event_mask:
+            if self.event_mask and self.features_params["Wav2VecTransformer"]["is_interpolate"]:
                 if self.word_seg_feature.event_kind == event.kind:
                     val = self.word_seg_feature.get(event)  # type: ignore
                     mask[:, overlap.slice_in_parent()] = val
 
-        for feature in self.values():
-            feature.post_process(data[self.get_slice(feature.name)])
+        # for feature in self.values():
+        #     feature.post_process(data[self.get_slice(feature.name)])
 
         if not self.event_mask:
             mask[:, :] = 1

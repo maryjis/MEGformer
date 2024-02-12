@@ -9,7 +9,6 @@ simpleconv:
   batch_norm: true
   depth: 10
   dilation_period: 5
-  kernel_size: 3
   skip: true
   subject_layers: true
   subject_dim: 0
@@ -26,6 +25,10 @@ simpleconv:
   flatten_out_channels: 512
   strides: [1,1,1,1,1,1,1,1,1,1]
   conv_dropout: 0.0
+  kernel_size: [3,3,3,3,3,3,3,3,3,3]
+  padding: [1,1,1,1,1,1,1,1,1,1]
+  seq_len: -1
+  auto_padding: true
 
 optim:
   loss: clip

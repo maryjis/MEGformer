@@ -141,7 +141,10 @@ class _BaseWav2Vec(base.Feature, CaptureInit):
     model_name = "facebook/wav2vec2-large-xlsr-53"
 
     def __init__(self, sample_rate: Frequency,
-                 normalized: bool = True, random: bool = False,
+                 normalized: bool = True,
+                 random: bool = False,
+                 is_interpolate: bool =True,
+                 size: int =150,
                  device: str = "cpu") -> None:
         super().__init__(sample_rate)
         args: tp.Any = self.model_name
@@ -156,6 +159,7 @@ class _BaseWav2Vec(base.Feature, CaptureInit):
         os.environ["TRANSFORMERS_VERBOSITY"] = "critical"
         self._model_cache = MemoryCache("Wav2VecEmbedding", "model")
         self._extractor_cache = MemoryCache("Wav2VecEmbedding", "extractor")
+        self.is_interpolate = is_interpolate
 
     @property
     def model(self) -> tp.Any:
@@ -247,17 +251,24 @@ class Wav2VecTransformer(_BaseWav2Vec):
                  normalized: bool = True,
                  layers: tp.Tuple[int, ...] = (14, 15, 16, 17, 18),
                  random: bool = False,
+                 is_interpolate: bool =True,
+                 size: int = 150,
                  device: str = "cpu") -> None:
         super().__init__(sample_rate=sample_rate, normalized=normalized,
                          device=device, random=random)
         self.layers = layers
+        self.is_interpolate =is_interpolate
+        print("self.is_interpolate ", self.is_interpolate)
 
     def get_on_overlap(self, event: events.Sound, overlap: events.DataSlice) -> torch.Tensor:
         outputs = self._get_cached_tensor(
             event, overlap=overlap,
             name="hidden_states", layers=list(self.layers))
         outputs = outputs[0].transpose(0, 1)  # [1, T, D] -> [T, D] -> [D, T]
-        return F.interpolate(outputs[None], overlap.duration_ind)[0]
+        if self.is_interpolate:
+            return F.interpolate(outputs[None], overlap.duration_ind)[0]
+        else:
+            return outputs
 
 
 class Wav2VecConvolution(_BaseWav2Vec):
