@@ -131,6 +131,7 @@ class Gwilliams2022Recording(api.Recording):
         events_df = pd.DataFrame(events)
         events_df[['language', 'modality']] = 'english', 'audio'
         events_df = extract_sequence_info(events_df)
-        events_df = events_df.event.create_blocks(groupby='sentence')
+        print("Group by : sound")
+        events_df = events_df.event.create_blocks(groupby='sound')
 
         return events_df

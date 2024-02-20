@@ -154,7 +154,7 @@ class WordHash(Feature):
             self.cardinality = 1 + buckets
 
     def get(self, event: events.Word) -> float:
-        hsh = hash(event.word.lower().strip('.').encode())
+        hsh = hash(str(event.word).lower().strip('.').encode())
         if self.buckets is not None:
             hsh = 1 + (hsh % self.buckets)
         return hsh

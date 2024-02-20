@@ -14,7 +14,7 @@ import torch
 from torch import nn
 
 from ..studies.api import Recording
-
+from dc1d.nn import DeformConv1d,PackedDeformConv1d
 
 logger = logging.getLogger(__name__)
 
@@ -85,7 +85,7 @@ class ConvSequence(nn.Module):
                  decode: bool = False, batch_norm: bool = False, dropout_input: float = 0,
                  skip: bool = False, scale: tp.Optional[float] = None, rewrite: bool = False,
                  activation_on_last: bool = True, post_skip: bool = False, glu: int = 0,
-                 glu_context: int = 0, glu_glu: bool = True, activation: tp.Any = None) -> None:
+                 is_deformable_conv: bool =False, glu_context: int = 0, glu_glu: bool = True, activation: tp.Any = None) -> None:
         super().__init__()
         dilation = 1
         channels = tuple(channels)
@@ -113,9 +113,15 @@ class ConvSequence(nn.Module):
             if auto_padding:
                 pad = kernel[k] // 2 * dilation
             else:
-                pad = padding[k]    
-            layers.append(Conv(chin, chout, kernel[k], strides[k], pad,
+                pad = padding[k] 
+            
+            if  is_deformable_conv:
+                layers.append(PackedDeformConv1d(in_channels =chin, out_channels =chout, kernel_size = kernel[k],
+                                                  stride = strides[k], padding = pad,
                                dilation=dilation, groups=groups if k > 0 else 1))
+            else:  
+                layers.append(Conv(chin, chout, kernel[k], strides[k], pad,
+                                dilation=dilation, groups=groups if k > 0 else 1))
             dilation *= dilation_growth
             # non-linearity
             if activation_on_last or not is_last:
@@ -364,3 +370,25 @@ class ChannelMerger(nn.Module):
             usage = weights.mean(dim=(0, 1)).sum()
             self._penalty = self.usage_penalty * usage
         return out
+
+
+class DeformTemporalConv(nn.Module):
+        def __init__(self, input_channels, output_channels, kernel, stride, padding, dilation, groups, batch_size=256):
+            super().__init__()
+            print(input_channels, output_channels, kernel, stride, padding, dilation, groups)
+            ## TODO change to seq_lenth
+            self.offset = nn.Parameter(torch.randn(batch_size, 1, output_channels, kernel, requires_grad=True))
+            self.layer = DeformConv1d(
+                    in_channels = input_channels,
+                    out_channels = output_channels,
+                    kernel_size = kernel,
+                    stride = stride,
+                    padding = padding,
+                    dilation = dilation,
+                    groups = groups,
+                    bias = True,
+                )
+            
+        def forward(self, x):
+            return self.layer(x, self.offset)
+        

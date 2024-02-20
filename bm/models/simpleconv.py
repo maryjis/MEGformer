@@ -81,6 +81,7 @@ class SimpleConv(nn.Module):
                  initial_linear: int = 0,
                  initial_depth: int = 1,
                  initial_nonlin: bool = False,
+                 is_deformable_conv: bool =False,
                  subsample_meg_channels: int = 0,
                  ):
         super().__init__()
@@ -174,6 +175,7 @@ class SimpleConv(nn.Module):
                       batch_norm=batch_norm, dilation_growth=dilation_growth, groups=groups,
                       dilation_period=dilation_period, skip=skip, post_skip=post_skip, scale=scale,
                       rewrite=rewrite, glu=glu, glu_context=glu_context, glu_glu=glu_glu, auto_padding = auto_padding,
+                      is_deformable_conv =is_deformable_conv,
                       activation=activation)
 
         final_channels = sum([x[-1] for x in sizes.values()])

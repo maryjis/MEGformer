@@ -85,7 +85,7 @@ def get_solver(args: tp.Any, training=True):
     elif args.model_name == "simpleconv":
         model = SimpleConv(in_channels=in_channels, out_channels=model_chout,
                            n_subjects=n_subjects, **args.simpleconv)
-        print(model)
+        
     elif args.model_name == "simpletransformer":
         print("Simple Transformer: ")
         model = SimpleTransformer(in_channels=in_channels, out_channels=model_chout,

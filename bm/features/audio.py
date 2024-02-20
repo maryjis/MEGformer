@@ -258,7 +258,6 @@ class Wav2VecTransformer(_BaseWav2Vec):
                          device=device, random=random)
         self.layers = layers
         self.is_interpolate =is_interpolate
-        print("self.is_interpolate ", self.is_interpolate)
 
     def get_on_overlap(self, event: events.Sound, overlap: events.DataSlice) -> torch.Tensor:
         outputs = self._get_cached_tensor(

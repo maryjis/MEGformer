@@ -21,7 +21,7 @@ optim:
   loss: clip
   epochs: 200
   max_batches: 1200
-  batch_size: 256
+  batch_size: 164
 
 norm:
   clip: true

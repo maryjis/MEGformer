@@ -29,6 +29,7 @@ simpleconv:
   padding: [1,1,1,1,1,1,1,1,1,1]
   seq_len: -1
   auto_padding: true
+  is_deformable_conv: false
 
 optim:
   loss: clip
