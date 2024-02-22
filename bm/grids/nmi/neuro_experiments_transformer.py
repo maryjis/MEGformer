@@ -42,4 +42,6 @@ def explorer(launcher):
             sub({'simpletransformer.subject_layers' : True, 'simpletransformer.positional_embedding': True, 'simpletransformer.merger' : True, 'simpletransformer.dim_ff' : 1024})
             sub({'simpletransformer.subject_layers' : True, 'simpletransformer.positional_embedding': True, 'simpletransformer.merger' : True , 'simpletransformer.model_type': 'logformer'})
             sub({'simpletransformer.subject_layers' : True, 'simpletransformer.positional_embedding': True, 'simpletransformer.depth' : 8, 'simpletransformer.nhead' : 8, 'dset.tmin' : -0.75 , 'dset.tmax': 3.25})
+            sub({'simpletransformer.subject_layers' : True, 'simpletransformer.positional_embedding': True, 'simpletransformer.depth' : 8, 
+                 'simpletransformer.nhead' : 8, 'dset.tmin' : -0.75 , 'dset.tmax': 3.25, 'optim.scheduler.name' : 'TransformerScheduler'})
             

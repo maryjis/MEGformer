@@ -14,6 +14,7 @@ import torch
 from torch import nn
 import torch.nn.functional as F
 from torch.utils.data import DataLoader
+from .schedulers import TransformerScheduler
 
 from .cache import Cache
 from .dataset import SegmentBatch
@@ -40,6 +41,9 @@ class Solver(flashy.BaseSolver):
         self.best_state: tp.Optional[dict] = None
         self.best_state_loss: tp.Optional[dict] = None
         self.loss = self._create_loss(args.optim.loss).to(self.device)
+        print(args.optim.scheduler.name)
+        self.scheduler = self._create_scheduler(args.optim.scheduler.name)
+        print(self.scheduler) 
 
         # Scalers
         self.scaler: tp.Optional[BatchScaler] = None
@@ -92,7 +96,18 @@ class Solver(flashy.BaseSolver):
             return loss
         else:
             raise ValueError(f"Unsupported loss {loss}")
-
+    
+    def _create_scheduler(self, scheduler: str):
+        if scheduler:
+            if scheduler=="TransformerScheduler":
+                return TransformerScheduler(optimizer=self.optimizer,
+                                            dim_embed =self.args.optim.scheduler.dim_embed,
+                                            warmup_steps=self.args.optim.scheduler.warmup_steps)
+            else:
+                raise ValueError(f"Unsupported scheduler {scheduler}")
+        else:
+            return None
+        
     def _init_scaler(self) -> None:
         if self.scaler is None:
             if flashy.distrib.is_rank_zero():
@@ -385,6 +400,9 @@ class Solver(flashy.BaseSolver):
                 loss.backward()
                 flashy.distrib.sync_model(self.all_models)
                 self.optimizer.step()
+                if self.scheduler is not None:
+                    print('scheduler step')
+                    self.scheduler.step()
 
             metrics = averager({'loss': loss})
             logprog.update(**metrics)

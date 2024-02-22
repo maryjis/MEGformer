@@ -297,3 +297,4 @@ If you use this code or results in your paper, please cite our work as:
 ## Debug
 
 python -m debugpy --listen 0.0.0.0:5679 -m bm.train
+python -m  debugpy --listen 0.0.0.0:5679 -m scripts.run_eval_probs sigs=[342eaad6]

@@ -51,7 +51,7 @@ def _get_extra_info(batch, sample_rate):
                     raise RuntimeError("Could not get the word sequence.")
                 if estart_ind >= 0 and (estop_ind - estart_ind) > 0:
                     words[k, estart_ind: estop_ind] = event.word
-                    segment += (" " + event.word)
+                    segment += (" " + str(event.word))
         word_segs.append(segment.strip())
     word_segs = np.array(word_segs)
     return data, words, word_segs

@@ -15,8 +15,7 @@ wandb:
 
 # Logging and printing, and does not impact training
 num_prints: 5
-device: cuda:2
-num_workers: 1
+device: cuda:1
 verbose: 0
 show: 0   # just show the model and its size and exit
 download_only: false  # if set to true, will stop immediately after having prepared the dataset.
@@ -45,6 +44,7 @@ optim:
   shuffle: false
   lr: 3e-4
   beta2: 0.999
+  eps: 1e-08
   epochs: 40
   batch_size: 32
   loss: l1
@@ -53,7 +53,9 @@ optim:
   max_batches:          # maximum number of updates per epoch.
   svd: 0.
   negatives:            # number of negatives to use in clip loss. If None, batch samples are used
-  negative_pool_size:   # size of the pool we sample negatives from
+  negative_pool_size:   # size of the pool we sample negatives 
+  scheduler: 
+    name: None
 
 clip:
   linear:      # add a linear layer with the given dimension before CLIP.

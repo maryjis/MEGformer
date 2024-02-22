@@ -131,7 +131,7 @@ def get_solver(args: tp.Any, training=True):
         if feature_model is not None:
             params += list(feature_model.parameters())
         if optargs.name == "adam":
-            optimizer = torch.optim.Adam(params, lr=optargs.lr, betas=(0.9, optargs.beta2))
+            optimizer = torch.optim.Adam(params, lr=optargs.lr, betas=(0.9, optargs.beta2), eps=optargs.eps)
         elif optargs.name == "adamw":
             print("Initialize AdamW")
             optimizer = torch.optim.AdamW(params, lr=optargs.lr, betas=(0.9, optargs.beta2), weight_decay=optargs.weight_decay)

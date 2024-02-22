@@ -47,3 +47,6 @@ def explorer(launcher):
             sub({'feature_model_params.dropout_value' : 0.3,
                  'feature_model_params.n_out_channels' : 64, 'timesnet.flatten_out_channels': 64, 'timesnet.d_model': 270,
                  'timesnet.d_ff': 512, 'timesnet.subject_layers': True, 'timesnet.merger': True, 'timesnet.enc_embedding' : False})
+            sub({'feature_model_params.dropout_value' : 0.3,
+                 'feature_model_params.n_out_channels' : 64, 'timesnet.flatten_out_channels': 64, 'timesnet.d_model': 128, 'optim.lr' : 1e-3,
+                 'timesnet.d_ff': 256, 'timesnet.subject_layers': True, 'timesnet.merger': True})

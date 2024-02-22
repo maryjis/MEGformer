@@ -54,9 +54,9 @@ class ConvWave(nn.Module):
         print("ConvWave")
         self.n_out_channels = n_out_channels
         self.layers_block = None
+        channels =input_channels
         if layers_block:
             self.layers_block = nn.ModuleList()
-            channels =input_channels
             for i in range(layers_number):
                 print(i)
                 channels_out =channels //2

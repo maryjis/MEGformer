@@ -22,6 +22,13 @@ optim:
   epochs: 200
   max_batches: 1200
   batch_size: 164
+  eps: 1e-09
+  lr: 0.001
+  beta2: 0.98
+  scheduler: 
+    name: None
+    dim_embed: 270
+    warmup_steps: 10000
 
 norm:
   clip: true
