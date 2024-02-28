@@ -14,3 +14,4 @@ from .simpleconv import SimpleConv
 from .features import DeepMel, ConvWave
 from .simpletransformer import SimpleTransformer
 from .timesnet import TimesNet
+from .cnntransformer import CNNTransformer

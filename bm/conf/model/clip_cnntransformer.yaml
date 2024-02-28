@@ -1,0 +1,56 @@
+# @package _global_
+
+num_workers: 5
+
+model_name: cnntransformer
+cnntransformer:
+  hidden:
+    meg: 320
+  batch_norm: true
+  depth_transformer: 2
+  depth: 4
+  dilation_period: 4
+  skip: true
+  subject_layers: true
+  subject_dim: 0
+  complex_out: true
+  glu: 2
+  glu_context: 1
+  merger: true
+  initial_linear: 270
+  gelu: true
+  merger_pos_dim: 2048
+  avg_pool_out: False 
+  adaptive_pooling_size: 1
+  flatten_out: True
+  flatten_out_channels: 264
+  strides: [1,1,1,1,1,1,1,1,1,1]
+  conv_dropout: 0.0
+  kernel_size: [3,3,3,3,3,3,3,3,3,3]
+  padding: [1,1,1,1,1,1,1,1,1,1]
+  seq_len: 361
+  auto_padding: true
+  is_deformable_conv: false
+  in_channels_tranformer: 264
+  out_channels_transformer: 1024
+  dim_ff: 2048
+  nhead: 8
+  positional_embedding: False,
+  positional_embedding_dropout: 0.0
+
+
+optim:
+  loss: clip
+  epochs: 200
+  max_batches: 1200
+  batch_size: 256
+
+norm:
+  clip: true
+
+task:
+  type: decode
+  # Moves the MEG signal to the 'past' by given ms value. This allows training
+  # causal models with better alignment between brain signals and the presented
+  # features.
+  offset_meg_ms: 150

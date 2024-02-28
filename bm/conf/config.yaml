@@ -19,6 +19,7 @@ device: cuda:1
 verbose: 0
 show: 0   # just show the model and its size and exit
 download_only: false  # if set to true, will stop immediately after having prepared the dataset.
+is_sound: true
 
 # Slurm
 slurm:
@@ -116,6 +117,8 @@ dset:
   allow_empty_split: false      # Allow empty splits, this can happen if a study has too few blocks.
   autoreject: false             # Use autoreject (https://autoreject.github.io/), super slow and loads
                                 # all the dataset in memory, so be careful!
+
+
   test:           # Overrides for the test set, only if value is not None
     tmin:
     tmax:

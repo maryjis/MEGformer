@@ -68,3 +68,4 @@ def explorer(launcher):
             sub({'dset.features_params.Wav2VecTransformer.layers' : [18]})
             sub({'dset.features_params.Wav2VecTransformer.layers' : [9]})
             sub({'dset.condition': 3.0})
+            sub({'is_sound': False})

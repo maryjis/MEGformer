@@ -104,7 +104,8 @@ class Solver(flashy.BaseSolver):
                                             dim_embed =self.args.optim.scheduler.dim_embed,
                                             warmup_steps=self.args.optim.scheduler.warmup_steps)
             else:
-                raise ValueError(f"Unsupported scheduler {scheduler}")
+                return None
+            
         else:
             return None
         

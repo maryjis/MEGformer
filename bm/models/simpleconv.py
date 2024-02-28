@@ -194,6 +194,8 @@ class SimpleConv(nn.Module):
         self.avg_pool_out = avg_pool_out
         if flatten_out:
               out_channels =  flatten_out_channels 
+              
+        print(out_channels)
         if linear_out:
             assert not complex_out
             self.final = nn.ConvTranspose1d(final_channels, out_channels, kernel, stride, pad)
@@ -215,7 +217,6 @@ class SimpleConv(nn.Module):
                                        for name, channels in sizes.items()})
         
     def crop_or_pad(self, x):
-            print("Crop & pad: ",self.sequence_lenth)
             length = x.size(-1)
             self.delta = self.sequence_lenth - length
             if length<self.sequence_lenth:

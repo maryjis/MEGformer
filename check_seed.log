@@ -1,0 +1,884 @@
+nohup: ignoring input
+Hostname bagration not defined in /conf/study_paths/study_paths.yaml. Using default paths.
+[1mParser[0m Injecting argv ['model=clip_conv', 'dset.selections=["gwilliams2022"]', 'dset.bandpass=true', 'dset.bandpass_high=0.1', 'dset.bandpass_lower=40.0', 'seed=2037', 'is_sound=false'] from sig 4d9b4a40
+{'wandb': {'use_wandb': True, 'project': 'brainmagick', 'group': 'brainmagick-group'}, 'num_prints': 5, 'device': 'cuda:1', 'verbose': 0, 'show': 0, 'download_only': False, 'is_sound': False, 'slurm': {'mem_per_gpu': 100, 'time': 4320}, 'continue_sig': None, 'continue_best': True, 'seed': 2037, 'dummy': None, 'cache': './cache', 'features_models': './features_models', 'early_stop_patience': 10, 'eval_every': 1, 'eval_train_set': False, 'optim': {'name': 'adam', 'shuffle': False, 'lr': 0.0003, 'beta2': 0.999, 'eps': 1e-08, 'epochs': 200, 'batch_size': 256, 'loss': 'clip', 'weight_decay': 0.0, 'use_weighting': False, 'max_batches': 1200, 'svd': 0.0, 'negatives': None, 'negative_pool_size': None, 'scheduler': {'name': 'None'}}, 'clip': {'linear': None, 'twin': True, 'pool': False, 'tmin': None, 'tmax': None, 'tmin_train': None, 'tmax_train': None, 'center': False, 'probabilities': False}, 'test': {'wer_negatives': 10000, 'wer_topx': 10, 'wer_random': False, 'wer_recordings': 40, 'wer_study': None}, 'dset': {'selections': ['gwilliams2022'], 'tmin': -0.5, 'tmax': 2.5, 'n_recordings': 1000, 'n_subjects': None, 'n_subjects_test': None, 'shuffle_recordings_seed': -1, 'skip_recordings': 0, 'test_ratio': 0.2, 'valid_ratio': 0.1, 'remove_ratio': 0.0, 'condition': 0.5, 'apply_baseline': True, 'min_block_duration': 6, 'force_uid_assignement': False, 'min_n_blocks_per_split': 1, 'ignore_end_in_block': False, 'ignore_start_in_block': False, 'sample_rate': 120, 'highpass': 0, 'bandpass': True, 'bandpass_high': 0.1, 'bandpass_lower': 40.0, 'event_mask': True, 'split_wav_as_block': True, 'allow_empty_split': False, 'autoreject': False, 'test': {'tmin': None, 'tmax': None, 'condition': 'word'}, 'features': ['Wav2VecTransformer'], 'extra_test_features': [], 'features_params': {'MelSpectrum': {'n_fft': 512, 'n_mels': 120, 'normalized': True, 'use_log_scale': True, 'log_scale_eps': 1e-05}, 'Pitch': {'min_f0': 100, 'max_f0': 350}, 'WordHash': {'buckets': 100000}, 'XlmEmbedding': {'contextual': False}, 'WordEmbedding': {'lang': 'auto'}, 'WordEmbeddingSmall': {'lang': 'auto'}, 'PartOfSpeech': {'lang': 'auto'}, 'Wav2VecTransformer': {'layers': [14, 15, 16, 17, 18], 'device': 'cpu', 'random': False, 'is_interpolate': True, 'size': 150}, 'Wav2VecChunk': {'device': 'cpu'}}}, 'override_n_subjects_model': None, 'norm': {'scaler': {'per_channel': False, 'n_samples_per_recording': 200, 'n_samples_features': 8000}, 'max_scale': 20.0, 'clip': True, 'exclude_empty_features': False}, 'task': {'type': 'decode', 'meg_init': 0.3, 'lowpass': 0, 'offset_meg_ms': 150, 'lowpass_gt': True, 'lowpass_gt_test': False, 'mask_loss': False}, 'dora': {'dir': './outputs', 'exclude': ['wandb.*', 'num_prints', 'device', 'num_workers', 'verbose', 'cache', 'features_models'], 'git_save': True}, 'model_name': 'simpleconv', 'convrnn': {'concatenate': False, 'depth': 2, 'linear_out': False, 'complex_out': False, 'kernel_size': 4, 'stride': 2, 'growth': 1.0, 'lstm': 4, 'bidirectional_lstm': False, 'flip_lstm': False, 'attention': 0, 'heads': 4, 'conv_dropout': 0.0, 'lstm_dropout': 0.0, 'dropout_input': 0.0, 'batch_norm': False, 'relu_leakiness': 0.0, 'subject_dim': 64, 'embedding_location': ['lstm'], 'embedding_scale': 1.0, 'subject_layers': False, 'subject_layers_dim': 'input'}, 'simpleconv': {'concatenate': False, 'depth': 10, 'linear_out': False, 'complex_out': True, 'dilation_growth': 2, 'dilation_period': 5, 'skip': True, 'post_skip': False, 'growth': 1.0, 'scale': None, 'rewrite': False, 'groups': 1, 'glu': 2, 'glu_context': 1, 'glu_glu': True, 'gelu': True, 'dual_path': 0, 'conv_dropout': 0.0, 'dropout_input': 0.0, 'batch_norm': True, 'relu_leakiness': 0.0, 'subject_dim': 0, 'subject_layers': True, 'embedding_scale': 1.0, 'subject_layers_dim': 'input', 'subject_layers_id': False, 'n_fft': None, 'fft_complex': True, 'merger': True, 'merger_pos_dim': 2048, 'merger_channels': 270, 'merger_dropout': 0.2, 'merger_penalty': 0.0, 'merger_per_subject': False, 'dropout': 0.0, 'dropout_rescale': True, 'initial_linear': 270, 'initial_depth': 1, 'initial_nonlin': False, 'avg_pool_out': False, 'adaptive_pooling_size': 1, 'flatten_out_channels': 512, 'strides': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'kernel_size': [3, 3, 3, 3, 3, 3, 3, 3, 3, 3], 'padding': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'seq_len': -1, 'auto_padding': True, 'is_deformable_conv': False, 'hidden': {'meg': 320}, 'flatten_out': False}, 'simpletransformer': {'hidden': {'meg': 320}, 'depth': 4, 'nhead': 8, 'subject_layers': False, 'positional_embedding': False, 'merger': False, 'merger_pos_dim': 2048, 'merger_channels': 272, 'model_type': 'basic', 'dim_ff': 2048, 'attention_window': [32, 32, 32, 32]}, 'timesnet': {'hidden': {'meg': 320}, 'depth': 2, 'subject_layers': False, 'sequence_lenth': 361, 'num_kernels': 6, 'top_k': 3, 'dropout_projection': 0.3, 'd_model': 32, 'd_ff': 32, 'flatten_out_channels': 1024, 'merger': False, 'merger_pos_dim': 2048, 'merger_channels': 270, 'enc_embedding': True}, 'num_workers': 5, 'feature_model_name': None, 'selections': {'audio_mous': {'study': 'schoffelen2019', 'modality': 'audio', 'events_filter': None}, 'audio_mous_wl': {'study': 'schoffelen2019', 'modality': 'audio', 'events_filter': 'condition == "word_list"'}, 'visual_mous': {'study': 'schoffelen2019', 'modality': 'visual', 'events_filter': None}, 'gwilliams2022': {'study': 'gwilliams2022'}, 'broderick2019': {'study': 'broderick2019'}, 'fake': {'study': 'fake'}, 'brennan2019': {'study': 'brennan2019'}}, 'study_paths': {'default': {'gwilliams2022': './data/gwilliams2022/', 'schoffelen2019': './data/schoffelen2019/', 'brennan2019': './data/brennan2019/', 'broderick2019': './data/broderick2019/'}}}
+[2024-02-26 15:05:15,641][bm._env][WARNING] - Hostname bagration not defined in /conf/study_paths/study_paths.yaml. Using default paths.
+[2024-02-26 15:05:15,666][bm.train][INFO] - For logs, checkpoints and samples, check /home/zubrikhina/brainmagick_MICCAI/outputs/xps/4d9b4a40.
+[2024-02-26 15:05:15,667][bm.train][INFO] - Caching intermediate data under /home/zubrikhina/brainmagick_MICCAI/cache.
+/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/hydra/_internal/hydra.py:119: UserWarning: Future Hydra versions will no longer change working directory at job runtime by default.
+See https://hydra.cc/docs/1.2/upgrades/1.1_to_1.2/changes_to_job_working_dir/ for more information.
+  ret = run_job(
+[[36m02-26 15:05:15[0m][[34mdora.distrib[0m][[32mINFO[0m] - world_size is 1, skipping init.[0m
+[[36m02-26 15:05:15[0m][[34mbm.dataset[0m][[33mWARNING[0m] - Requested 1000 recordings but only found 196[0m
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+Group by : sound
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+/home/zubrikhina/brainmagick_MICCAI/bm/studies/gwilliams2022.py:105: RuntimeWarning: The unit for channel(s) MISC 001, MISC 002, MISC 003, MISC 004, MISC 005, MISC 006, MISC 007, MISC 008, MISC 009, MISC 010, MISC 011, MISC 012, MISC 013, MISC 014, MISC 015, MISC 016, MISC 017, MISC 018, MISC 019, MISC 020, MISC 021, MISC 022, MISC 023, MISC 024, MISC 025, MISC 026, MISC 027, MISC 028, MISC 029, MISC 030, MISC 031, MISC 032 has changed from V to NA.
+  raw = read_raw_bids(bids_path)  # FIXME this is NOT a lazy read
+[[36m02-26 15:45:02[0m][[34mbm.dataset[0m][[32mINFO[0m] - Loading Subjects | 39/196 | 0.42 it/sec[0m
+[[36m02-26 15:46:27[0m][[34mbm.dataset[0m][[32mINFO[0m] - Loading Subjects | 78/196 | 0.44 it/sec[0m
+[[36m02-26 15:47:54[0m][[34mbm.dataset[0m][[32mINFO[0m] - Loading Subjects | 117/196 | 0.44 it/sec[0m
+[[36m02-26 15:49:23[0m][[34mbm.dataset[0m][[32mINFO[0m] - Loading Subjects | 156/196 | 0.44 it/sec[0m
+[[36m02-26 15:50:55[0m][[34mbm.dataset[0m][[32mINFO[0m] - Loading Subjects | 195/196 | 0.44 it/sec[0m
+[[36m02-26 15:50:55[0m][[34mbm.dataset[0m][[32mINFO[0m] - # Examples (train | valid | test): 203152 | 35156 | 69972[0m
+Some weights of Wav2Vec2Model were not initialized from the model checkpoint at facebook/wav2vec2-large-xlsr-53 and are newly initialized: ['wav2vec2.encoder.pos_conv_embed.conv.parametrizations.weight.original1', 'wav2vec2.encoder.pos_conv_embed.conv.parametrizations.weight.original0']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+[[36m02-26 15:51:01[0m][[34mbm.train[0m][[32mINFO[0m] - Model hash: a0a7fa5e3ab96715ec0792344ac8edb3f13d3ab3[0m
+/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/flashy/loggers/tensorboard.py:47: UserWarning: tensorboard package was not found: use pip install tensorboard
+  warnings.warn("tensorboard package was not found: use pip install tensorboard")
+wandb: Currently logged in as: almachan2358 (gnn-neuro). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.3 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.1
+wandb: Run data is saved locally in /home/zubrikhina/brainmagick_MICCAI/outputs/xps/4d9b4a40/wandb/run-20240226_155108-4d9b4a40
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run 4d9b4a40
+wandb: ⭐️ View project at https://wandb.ai/gnn-neuro/brainmagick
+wandb: 🚀 View run at https://wandb.ai/gnn-neuro/brainmagick/runs/4d9b4a40
+[[36m02-26 15:51:14[0m][[34mbm.solver[0m][[32mINFO[0m] - Fitting scaler. Dataset size=203152 samples.[0m
+None
+None
+[[36m02-26 16:06:44[0m][[34mbm.norm[0m][[32mINFO[0m] - Fitting scalers | 39/196 | 23.3 sec/it[0m
+[[36m02-26 16:14:25[0m][[34mbm.norm[0m][[32mINFO[0m] - Fitting scalers | 78/196 | 17.6 sec/it[0m
+[[36m02-26 16:21:25[0m][[34mbm.norm[0m][[32mINFO[0m] - Fitting scalers | 117/196 | 15.3 sec/it[0m
+[[36m02-26 16:28:16[0m][[34mbm.norm[0m][[32mINFO[0m] - Fitting scalers | 156/196 | 14.2 sec/it[0m
+[[36m02-26 16:35:17[0m][[34mbm.norm[0m][[32mINFO[0m] - Fitting scalers | 195/196 | 13.5 sec/it[0m
+[[36m02-26 16:35:45[0m][[34mbm.norm[0m][[32mINFO[0m] - features collected for norm: torch.Size([2957312, 1024])[0m
+[[36m02-26 16:37:15[0m][[34mbm.solver[0m][[32mINFO[0m] - Scaler cache file /home/zubrikhina/brainmagick_MICCAI/cache/scaler/e7138f34c964e59b/bf21a9e8fbc5a384.pkl[0m
+[[36m02-26 16:43:04[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 1 | 158/794 | 0.46 it/sec | loss 5.5962[0m
+[[36m02-26 16:49:04[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 1 | 316/794 | 0.45 it/sec | loss 5.5692[0m
+[[36m02-26 16:54:22[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 1 | 474/794 | 0.46 it/sec | loss 5.5232[0m
+[[36m02-26 17:00:35[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 1 | 632/794 | 0.45 it/sec | loss 5.1465[0m
+[[36m02-26 17:05:57[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 1 | 790/794 | 0.46 it/sec | loss 4.7338[0m
+[[36m02-26 17:06:07[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 1 | loss=4.7261 | duration=1732.5884[0m
+[[36m02-26 17:14:37[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 1 | 27/138 | 18.1 sec/it | loss 2.8593[0m
+[[36m02-26 17:17:50[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 1 | 54/138 | 12.7 sec/it | loss 2.8584[0m
+[[36m02-26 17:20:02[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 1 | 81/138 | 10.1 sec/it | loss 2.8574[0m
+[[36m02-26 17:22:25[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 1 | 108/138 | 0.11 it/sec | loss 2.8679[0m
+[[36m02-26 17:24:10[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 1 | 135/138 | 0.13 it/sec | loss 2.8680[0m
+[[36m02-26 17:24:11[0m][[34mbm.solver[0m][[32mINFO[0m] - [1mNew best valid loss 2.8605[0m
+[[36m02-26 17:24:11[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 1 | loss=2.8605 | duration=1084.1916[0m
+[[36m02-26 17:28:26[0m][[34mbm.wer[0m][[32mINFO[0m] - WER | 11/56 | 21.0 sec/it[0m
+[[36m02-26 17:28:53[0m][[34mbm.wer[0m][[32mINFO[0m] - WER | 22/56 | 12.1 sec/it[0m
+[[36m02-26 17:29:18[0m][[34mbm.wer[0m][[32mINFO[0m] - WER | 33/56 | 0.11 it/sec[0m
+[[36m02-26 17:29:41[0m][[34mbm.wer[0m][[32mINFO[0m] - WER | 44/56 | 0.14 it/sec[0m
+[[36m02-26 17:30:03[0m][[34mbm.wer[0m][[32mINFO[0m] - WER | 55/56 | 0.16 it/sec[0m
+[[36m02-26 17:30:36[0m][[34mbm.wer[0m][[32mINFO[0m] - wer 10000 negatives selected[0m
+[[36m02-26 17:32:16[0m][[34mbm.wer[0m][[32mINFO[0m] - WER Rank | 2856/14280 | 29.09 it/sec[0m
+[[36m02-26 17:33:54[0m][[34mbm.wer[0m][[32mINFO[0m] - WER Rank | 5712/14280 | 29.06 it/sec[0m
+[[36m02-26 17:35:33[0m][[34mbm.wer[0m][[32mINFO[0m] - WER Rank | 8568/14280 | 29.07 it/sec[0m
+[[36m02-26 17:37:11[0m][[34mbm.wer[0m][[32mINFO[0m] - WER Rank | 11424/14280 | 29.06 it/sec[0m
+[[36m02-26 17:38:52[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTest Summary | Epoch 1 | wer=63.536% | wer_vocab=37.066% | duration=880.2264[0m
+[[36m02-26 17:38:52[0m][[34mbm.solver[0m][[32mINFO[0m] - Scale Reject | Ratio 0.000%[0m
+[[36m02-26 17:45:11[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 2 | 158/794 | 0.42 it/sec | loss 2.7044[0m
+[[36m02-26 17:51:22[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 2 | 316/794 | 0.42 it/sec | loss 2.5755[0m
+[[36m02-26 17:57:18[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 2 | 474/794 | 0.43 it/sec | loss 2.4897[0m
+[[36m02-26 18:03:16[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 2 | 632/794 | 0.43 it/sec | loss 2.4197[0m
+[[36m02-26 18:08:58[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 2 | 790/794 | 0.44 it/sec | loss 2.3495[0m
+[[36m02-26 18:09:02[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 2 | loss=2.3485 | duration=1809.6793[0m
+[[36m02-26 18:10:11[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 2 | 27/138 | 0.43 it/sec | loss 2.2541[0m
+[[36m02-26 18:11:03[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 2 | 54/138 | 0.47 it/sec | loss 2.2563[0m
+[[36m02-26 18:12:06[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 2 | 81/138 | 0.45 it/sec | loss 2.2525[0m
+[[36m02-26 18:12:58[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 2 | 108/138 | 0.47 it/sec | loss 2.2618[0m
+[[36m02-26 18:13:58[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 2 | 135/138 | 0.46 it/sec | loss 2.2586[0m
+[[36m02-26 18:14:00[0m][[34mbm.solver[0m][[32mINFO[0m] - [1mNew best valid loss 2.2550[0m
+[[36m02-26 18:14:00[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 2 | loss=2.2550 | duration=298.4906[0m
+[[36m02-26 18:14:47[0m][[34mbm.wer[0m][[32mINFO[0m] - WER | 11/56 | 0.28 it/sec[0m
+[[36m02-26 18:15:12[0m][[34mbm.wer[0m][[32mINFO[0m] - WER | 22/56 | 0.34 it/sec[0m
+[[36m02-26 18:15:34[0m][[34mbm.wer[0m][[32mINFO[0m] - WER | 33/56 | 0.38 it/sec[0m
+[[36m02-26 18:15:59[0m][[34mbm.wer[0m][[32mINFO[0m] - WER | 44/56 | 0.39 it/sec[0m
+[[36m02-26 18:16:26[0m][[34mbm.wer[0m][[32mINFO[0m] - WER | 55/56 | 0.40 it/sec[0m
+[[36m02-26 18:17:12[0m][[34mbm.wer[0m][[32mINFO[0m] - wer 10000 negatives selected[0m
+[[36m02-26 18:18:53[0m][[34mbm.wer[0m][[32mINFO[0m] - WER Rank | 2856/14280 | 29.06 it/sec[0m
+[[36m02-26 18:20:31[0m][[34mbm.wer[0m][[32mINFO[0m] - WER Rank | 5712/14280 | 29.07 it/sec[0m
+[[36m02-26 18:22:09[0m][[34mbm.wer[0m][[32mINFO[0m] - WER Rank | 8568/14280 | 29.06 it/sec[0m
+[[36m02-26 18:23:49[0m][[34mbm.wer[0m][[32mINFO[0m] - WER Rank | 11424/14280 | 28.94 it/sec[0m
+[[36m02-26 18:25:31[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTest Summary | Epoch 2 | wer=49.664% | wer_vocab=26.232% | duration=691.0094[0m
+[[36m02-26 18:25:31[0m][[34mbm.solver[0m][[32mINFO[0m] - Scale Reject | Ratio 0.000%[0m
+[[36m02-26 18:31:55[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 3 | 158/794 | 0.42 it/sec | loss 1.9500[0m
+[[36m02-26 18:38:03[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 3 | 316/794 | 0.42 it/sec | loss 1.8970[0m
+[[36m02-26 18:44:13[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 3 | 474/794 | 0.43 it/sec | loss 1.8560[0m
+[[36m02-26 18:50:20[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 3 | 632/794 | 0.43 it/sec | loss 1.8289[0m
+[[36m02-26 18:56:24[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 3 | 790/794 | 0.43 it/sec | loss 1.7937[0m
+[[36m02-26 18:56:37[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 3 | loss=1.7944 | duration=1864.8259[0m
+[[36m02-26 18:57:51[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 3 | 27/138 | 0.39 it/sec | loss 2.1794[0m
+[[36m02-26 18:58:47[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 3 | 54/138 | 0.43 it/sec | loss 2.1606[0m
+[[36m02-26 18:59:50[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 3 | 81/138 | 0.43 it/sec | loss 2.1478[0m
+[[36m02-26 19:00:49[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 3 | 108/138 | 0.44 it/sec | loss 2.1427[0m
+[[36m02-26 19:01:50[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 3 | 135/138 | 0.44 it/sec | loss 2.1404[0m
+[[36m02-26 19:01:51[0m][[34mbm.solver[0m][[32mINFO[0m] - [1mNew best valid loss 2.1354[0m
+[[36m02-26 19:01:52[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 3 | loss=2.1354 | duration=314.6486[0m
+[[36m02-26 19:02:35[0m][[34mbm.wer[0m][[32mINFO[0m] - WER | 11/56 | 0.30 it/sec[0m
+[[36m02-26 19:03:01[0m][[34mbm.wer[0m][[32mINFO[0m] - WER | 22/56 | 0.35 it/sec[0m
+[[36m02-26 19:03:27[0m][[34mbm.wer[0m][[32mINFO[0m] - WER | 33/56 | 0.37 it/sec[0m
+[[36m02-26 19:03:53[0m][[34mbm.wer[0m][[32mINFO[0m] - WER | 44/56 | 0.38 it/sec[0m
+[[36m02-26 19:04:21[0m][[34mbm.wer[0m][[32mINFO[0m] - WER | 55/56 | 0.38 it/sec[0m
+[[36m02-26 19:05:02[0m][[34mbm.wer[0m][[32mINFO[0m] - wer 10000 negatives selected[0m
+[[36m02-26 19:06:43[0m][[34mbm.wer[0m][[32mINFO[0m] - WER Rank | 2856/14280 | 29.05 it/sec[0m
+[[36m02-26 19:08:22[0m][[34mbm.wer[0m][[32mINFO[0m] - WER Rank | 5712/14280 | 28.99 it/sec[0m
+[[36m02-26 19:10:00[0m][[34mbm.wer[0m][[32mINFO[0m] - WER Rank | 8568/14280 | 28.99 it/sec[0m
+[[36m02-26 19:11:39[0m][[34mbm.wer[0m][[32mINFO[0m] - WER Rank | 11424/14280 | 28.96 it/sec[0m
+[[36m02-26 19:13:21[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTest Summary | Epoch 3 | wer=45.042% | wer_vocab=22.164% | duration=689.5629[0m
+[[36m02-26 19:13:21[0m][[34mbm.solver[0m][[32mINFO[0m] - Scale Reject | Ratio 0.000%[0m
+[[36m02-26 19:19:33[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 4 | 158/794 | 0.43 it/sec | loss 1.5538[0m
+[[36m02-26 19:25:33[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 4 | 316/794 | 0.44 it/sec | loss 1.5397[0m
+[[36m02-26 19:31:40[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 4 | 474/794 | 0.43 it/sec | loss 1.5194[0m
+[[36m02-26 19:37:39[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 4 | 632/794 | 0.44 it/sec | loss 1.5014[0m
+[[36m02-26 19:43:45[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 4 | 790/794 | 0.44 it/sec | loss 1.4816[0m
+[[36m02-26 19:43:51[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 4 | loss=1.4814 | duration=1827.7646[0m
+[[36m02-26 19:45:03[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 4 | 27/138 | 0.41 it/sec | loss 2.1006[0m
+[[36m02-26 19:46:01[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 4 | 54/138 | 0.44 it/sec | loss 2.0626[0m
+[[36m02-26 19:47:06[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 4 | 81/138 | 0.43 it/sec | loss 2.0631[0m
+[[36m02-26 19:48:09[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 4 | 108/138 | 0.43 it/sec | loss 2.0683[0m
+[[36m02-26 19:49:08[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 4 | 135/138 | 0.43 it/sec | loss 2.0650[0m
+[[36m02-26 19:49:13[0m][[34mbm.solver[0m][[32mINFO[0m] - [1mNew best valid loss 2.0586[0m
+[[36m02-26 19:49:13[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 4 | loss=2.0586 | duration=322.4006[0m
+[[36m02-26 19:50:03[0m][[34mbm.wer[0m][[32mINFO[0m] - WER | 11/56 | 0.27 it/sec[0m
+[[36m02-26 19:50:31[0m][[34mbm.wer[0m][[32mINFO[0m] - WER | 22/56 | 0.31 it/sec[0m
+[[36m02-26 19:50:58[0m][[34mbm.wer[0m][[32mINFO[0m] - WER | 33/56 | 0.34 it/sec[0m
+[[36m02-26 19:51:29[0m][[34mbm.wer[0m][[32mINFO[0m] - WER | 44/56 | 0.34 it/sec[0m
+[[36m02-26 19:51:58[0m][[34mbm.wer[0m][[32mINFO[0m] - WER | 55/56 | 0.35 it/sec[0m
+[[36m02-26 19:52:38[0m][[34mbm.wer[0m][[32mINFO[0m] - wer 10000 negatives selected[0m
+[[36m02-26 19:54:18[0m][[34mbm.wer[0m][[32mINFO[0m] - WER Rank | 2856/14280 | 29.08 it/sec[0m
+[[36m02-26 19:55:57[0m][[34mbm.wer[0m][[32mINFO[0m] - WER Rank | 5712/14280 | 29.04 it/sec[0m
+[[36m02-26 19:57:36[0m][[34mbm.wer[0m][[32mINFO[0m] - WER Rank | 8568/14280 | 29.01 it/sec[0m
+[[36m02-26 19:59:14[0m][[34mbm.wer[0m][[32mINFO[0m] - WER Rank | 11424/14280 | 29.01 it/sec[0m
+[[36m02-26 20:00:56[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTest Summary | Epoch 4 | wer=44.608% | wer_vocab=21.520% | duration=702.7083[0m
+[[36m02-26 20:00:56[0m][[34mbm.solver[0m][[32mINFO[0m] - Scale Reject | Ratio 0.000%[0m
+[[36m02-26 20:06:58[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 5 | 158/794 | 0.45 it/sec | loss 1.2272[0m
+[[36m02-26 20:12:50[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 5 | 316/794 | 0.45 it/sec | loss 1.2364[0m
+[[36m02-26 20:18:43[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 5 | 474/794 | 0.45 it/sec | loss 1.2355[0m
+[[36m02-26 20:24:47[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 5 | 632/794 | 0.44 it/sec | loss 1.2226[0m
+[[36m02-26 20:30:53[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 5 | 790/794 | 0.44 it/sec | loss 1.2092[0m
+[[36m02-26 20:30:55[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 5 | loss=1.2086 | duration=1798.1794[0m
+[[36m02-26 20:32:03[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 5 | 27/138 | 0.44 it/sec | loss 2.1258[0m
+[[36m02-26 20:33:01[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 5 | 54/138 | 0.45 it/sec | loss 2.1277[0m
+[[36m02-26 20:34:04[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 5 | 81/138 | 0.44 it/sec | loss 2.1178[0m
+[[36m02-26 20:35:00[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 5 | 108/138 | 0.45 it/sec | loss 2.1040[0m
+[[36m02-26 20:36:04[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 5 | 135/138 | 0.45 it/sec | loss 2.0987[0m
+[[36m02-26 20:36:06[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 5 | loss=2.0964 | duration=310.5140[0m
+[[36m02-26 20:36:06[0m][[34mbm.solver[0m][[32mINFO[0m] - Scale Reject | Ratio 0.000%[0m
+[[36m02-26 20:42:16[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 6 | 158/794 | 0.44 it/sec | loss 1.0469[0m
+[[36m02-26 20:48:15[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 6 | 316/794 | 0.44 it/sec | loss 1.0366[0m
+[[36m02-26 20:53:47[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 6 | 474/794 | 0.45 it/sec | loss 1.0196[0m
+[[36m02-26 20:59:20[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 6 | 632/794 | 0.46 it/sec | loss 1.0197[0m
+[[36m02-26 21:05:21[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 6 | 790/794 | 0.45 it/sec | loss 1.0133[0m
+[[36m02-26 21:05:26[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 6 | loss=1.0128 | duration=1758.9847[0m
+[[36m02-26 21:06:32[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 6 | 27/138 | 0.45 it/sec | loss 2.1684[0m
+[[36m02-26 21:07:26[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 6 | 54/138 | 0.47 it/sec | loss 2.2144[0m
+[[36m02-26 21:08:33[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 6 | 81/138 | 0.45 it/sec | loss 2.2053[0m
+[[36m02-26 21:09:26[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 6 | 108/138 | 0.46 it/sec | loss 2.2021[0m
+[[36m02-26 21:10:26[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 6 | 135/138 | 0.46 it/sec | loss 2.1966[0m
+[[36m02-26 21:10:32[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 6 | loss=2.1930 | duration=305.8260[0m
+[[36m02-26 21:10:32[0m][[34mbm.solver[0m][[32mINFO[0m] - Scale Reject | Ratio 0.000%[0m
+[[36m02-26 21:16:33[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 7 | 158/794 | 0.45 it/sec | loss 0.9033[0m
+[[36m02-26 21:22:36[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 7 | 316/794 | 0.44 it/sec | loss 0.8968[0m
+[[36m02-26 21:28:36[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 7 | 474/794 | 0.44 it/sec | loss 0.8973[0m
+[[36m02-26 21:34:36[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 7 | 632/794 | 0.44 it/sec | loss 0.8880[0m
+[[36m02-26 21:40:36[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 7 | 790/794 | 0.44 it/sec | loss 0.8797[0m
+[[36m02-26 21:40:38[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 7 | loss=0.8783 | duration=1805.6542[0m
+[[36m02-26 21:41:47[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 7 | 27/138 | 0.43 it/sec | loss 2.2135[0m
+[[36m02-26 21:42:39[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 7 | 54/138 | 0.47 it/sec | loss 2.2124[0m
+[[36m02-26 21:43:41[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 7 | 81/138 | 0.46 it/sec | loss 2.2102[0m
+[[36m02-26 21:44:36[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 7 | 108/138 | 0.47 it/sec | loss 2.2206[0m
+[[36m02-26 21:45:37[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 7 | 135/138 | 0.46 it/sec | loss 2.2105[0m
+[[36m02-26 21:45:39[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 7 | loss=2.2074 | duration=300.7445[0m
+[[36m02-26 21:45:39[0m][[34mbm.solver[0m][[32mINFO[0m] - Scale Reject | Ratio 0.000%[0m
+[[36m02-26 21:51:36[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 8 | 158/794 | 0.45 it/sec | loss 0.8279[0m
+[[36m02-26 21:57:33[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 8 | 316/794 | 0.45 it/sec | loss 0.8049[0m
+[[36m02-26 22:03:27[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 8 | 474/794 | 0.45 it/sec | loss 0.8038[0m
+[[36m02-26 22:09:33[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 8 | 632/794 | 0.44 it/sec | loss 0.7911[0m
+[[36m02-26 22:15:34[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 8 | 790/794 | 0.44 it/sec | loss 0.7880[0m
+[[36m02-26 22:15:45[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 8 | loss=0.7877 | duration=1804.8466[0m
+[[36m02-26 22:16:58[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 8 | 27/138 | 0.40 it/sec | loss 2.4377[0m
+[[36m02-26 22:17:56[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 8 | 54/138 | 0.43 it/sec | loss 2.4323[0m
+[[36m02-26 22:19:00[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 8 | 81/138 | 0.43 it/sec | loss 2.4539[0m
+[[36m02-26 22:19:56[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 8 | 108/138 | 0.44 it/sec | loss 2.4411[0m
+[[36m02-26 22:21:00[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 8 | 135/138 | 0.44 it/sec | loss 2.4383[0m
+[[36m02-26 22:21:02[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 8 | loss=2.4341 | duration=317.3146[0m
+[[36m02-26 22:21:02[0m][[34mbm.solver[0m][[32mINFO[0m] - Scale Reject | Ratio 0.000%[0m
+[[36m02-26 22:27:11[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 9 | 158/794 | 0.44 it/sec | loss 0.7142[0m
+[[36m02-26 22:33:18[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 9 | 316/794 | 0.43 it/sec | loss 0.6940[0m
+[[36m02-26 22:39:18[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 9 | 474/794 | 0.44 it/sec | loss 0.6941[0m
+[[36m02-26 22:45:22[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 9 | 632/794 | 0.43 it/sec | loss 0.7015[0m
+[[36m02-26 22:51:23[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 9 | 790/794 | 0.44 it/sec | loss 0.7020[0m
+[[36m02-26 22:51:26[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 9 | loss=0.7028 | duration=1822.3484[0m
+[[36m02-26 22:52:33[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 9 | 27/138 | 0.44 it/sec | loss 2.3433[0m
+[[36m02-26 22:53:27[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 9 | 54/138 | 0.47 it/sec | loss 2.3206[0m
+[[36m02-26 22:54:32[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 9 | 81/138 | 0.45 it/sec | loss 2.3447[0m
+[[36m02-26 22:55:28[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 9 | 108/138 | 0.46 it/sec | loss 2.3554[0m
+[[36m02-26 22:56:32[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 9 | 135/138 | 0.45 it/sec | loss 2.3478[0m
+[[36m02-26 22:56:33[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 9 | loss=2.3426 | duration=307.8858[0m
+[[36m02-26 22:56:33[0m][[34mbm.solver[0m][[32mINFO[0m] - Scale Reject | Ratio 0.000%[0m
+[[36m02-26 23:02:38[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 10 | 158/794 | 0.44 it/sec | loss 0.6215[0m
+[[36m02-26 23:08:36[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 10 | 316/794 | 0.44 it/sec | loss 0.6572[0m
+[[36m02-26 23:14:13[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 10 | 474/794 | 0.45 it/sec | loss 0.6677[0m
+[[36m02-26 23:20:01[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 10 | 632/794 | 0.45 it/sec | loss 0.6627[0m
+[[36m02-26 23:25:51[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 10 | 790/794 | 0.45 it/sec | loss 0.6583[0m
+[[36m02-26 23:25:54[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 10 | loss=0.6586 | duration=1759.0206[0m
+[[36m02-26 23:27:02[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 10 | 27/138 | 0.43 it/sec | loss 2.4178[0m
+[[36m02-26 23:27:56[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 10 | 54/138 | 0.46 it/sec | loss 2.4261[0m
+[[36m02-26 23:28:58[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 10 | 81/138 | 0.45 it/sec | loss 2.4145[0m
+[[36m02-26 23:29:55[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 10 | 108/138 | 0.46 it/sec | loss 2.4145[0m
+[[36m02-26 23:30:56[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 10 | 135/138 | 0.45 it/sec | loss 2.4235[0m
+[[36m02-26 23:30:58[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 10 | loss=2.4217 | duration=304.3352[0m
+[[36m02-26 23:30:58[0m][[34mbm.solver[0m][[32mINFO[0m] - Scale Reject | Ratio 0.000%[0m
+[[36m02-26 23:37:11[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 11 | 158/794 | 0.43 it/sec | loss 0.6173[0m
+[[36m02-26 23:43:08[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 11 | 316/794 | 0.44 it/sec | loss 0.6124[0m
+[[36m02-26 23:49:02[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 11 | 474/794 | 0.44 it/sec | loss 0.6129[0m
+[[36m02-26 23:54:59[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 11 | 632/794 | 0.44 it/sec | loss 0.6165[0m
+[[36m02-27 00:00:49[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 11 | 790/794 | 0.44 it/sec | loss 0.6200[0m
+[[36m02-27 00:00:54[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 11 | loss=0.6199 | duration=1795.3187[0m
+[[36m02-27 00:02:00[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 11 | 27/138 | 0.45 it/sec | loss 2.4473[0m
+[[36m02-27 00:02:57[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 11 | 54/138 | 0.46 it/sec | loss 2.4522[0m
+[[36m02-27 00:03:59[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 11 | 81/138 | 0.45 it/sec | loss 2.4524[0m
+[[36m02-27 00:04:55[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 11 | 108/138 | 0.46 it/sec | loss 2.4574[0m
+[[36m02-27 00:05:56[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 11 | 135/138 | 0.46 it/sec | loss 2.4644[0m
+[[36m02-27 00:05:58[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 11 | loss=2.4578 | duration=303.3499[0m
+[[36m02-27 00:05:58[0m][[34mbm.solver[0m][[32mINFO[0m] - Scale Reject | Ratio 0.000%[0m
+[[36m02-27 00:12:07[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 12 | 158/794 | 0.44 it/sec | loss 0.5842[0m
+[[36m02-27 00:18:13[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 12 | 316/794 | 0.43 it/sec | loss 0.5679[0m
+[[36m02-27 00:24:05[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 12 | 474/794 | 0.44 it/sec | loss 0.5850[0m
+[[36m02-27 00:29:56[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 12 | 632/794 | 0.44 it/sec | loss 0.5801[0m
+[[36m02-27 00:35:46[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 12 | 790/794 | 0.44 it/sec | loss 0.5792[0m
+[[36m02-27 00:35:48[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 12 | loss=0.5787 | duration=1789.2422[0m
+[[36m02-27 00:36:57[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 12 | 27/138 | 0.43 it/sec | loss 2.5278[0m
+[[36m02-27 00:37:49[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 12 | 54/138 | 0.47 it/sec | loss 2.5279[0m
+[[36m02-27 00:38:54[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 12 | 81/138 | 0.45 it/sec | loss 2.5338[0m
+[[36m02-27 00:39:46[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 12 | 108/138 | 0.47 it/sec | loss 2.5514[0m
+[[36m02-27 00:40:44[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 12 | 135/138 | 0.46 it/sec | loss 2.5457[0m
+[[36m02-27 00:40:48[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 12 | loss=2.5383 | duration=299.4247[0m
+[[36m02-27 00:40:48[0m][[34mbm.solver[0m][[32mINFO[0m] - Scale Reject | Ratio 0.000%[0m
+[[36m02-27 00:46:54[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 13 | 158/794 | 0.44 it/sec | loss 0.5565[0m
+[[36m02-27 00:52:44[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 13 | 316/794 | 0.45 it/sec | loss 0.5583[0m
+[[36m02-27 00:58:37[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 13 | 474/794 | 0.45 it/sec | loss 0.5614[0m
+[[36m02-27 01:04:44[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 13 | 632/794 | 0.44 it/sec | loss 0.5677[0m
+[[36m02-27 01:10:49[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 13 | 790/794 | 0.44 it/sec | loss 0.5680[0m
+[[36m02-27 01:10:51[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 13 | loss=0.5674 | duration=1802.5977[0m
+[[36m02-27 01:12:02[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 13 | 27/138 | 0.41 it/sec | loss 2.5175[0m
+[[36m02-27 01:12:58[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 13 | 54/138 | 0.44 it/sec | loss 2.5646[0m
+[[36m02-27 01:14:02[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 13 | 81/138 | 0.44 it/sec | loss 2.5820[0m
+[[36m02-27 01:14:59[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 13 | 108/138 | 0.45 it/sec | loss 2.5742[0m
+[[36m02-27 01:16:06[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 13 | 135/138 | 0.44 it/sec | loss 2.5661[0m
+[[36m02-27 01:16:08[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 13 | loss=2.5646 | duration=316.6828[0m
+[[36m02-27 01:16:08[0m][[34mbm.solver[0m][[32mINFO[0m] - Scale Reject | Ratio 0.000%[0m
+[[36m02-27 01:21:56[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 14 | 158/794 | 0.46 it/sec | loss 0.5352[0m
+[[36m02-27 01:27:41[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 14 | 316/794 | 0.46 it/sec | loss 0.5332[0m
+[[36m02-27 01:33:24[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 14 | 474/794 | 0.46 it/sec | loss 0.5411[0m
+[[36m02-27 01:39:05[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 14 | 632/794 | 0.46 it/sec | loss 0.5393[0m
+[[36m02-27 01:44:45[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 14 | 790/794 | 0.46 it/sec | loss 0.5446[0m
+[[36m02-27 01:44:47[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 14 | loss=0.5447 | duration=1717.9613[0m
+[[36m02-27 01:45:52[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 14 | 27/138 | 0.45 it/sec | loss 2.9774[0m
+[[36m02-27 01:46:42[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 14 | 54/138 | 0.49 it/sec | loss 2.9494[0m
+[[36m02-27 01:47:44[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 14 | 81/138 | 0.47 it/sec | loss 2.9340[0m
+[[36m02-27 01:48:36[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 14 | 108/138 | 0.48 it/sec | loss 2.9494[0m
+[[36m02-27 01:49:37[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 14 | 135/138 | 0.47 it/sec | loss 2.9601[0m
+[[36m02-27 01:49:38[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 14 | loss=2.9587 | duration=291.3464[0m
+[[36m02-27 01:49:38[0m][[34mbm.solver[0m][[33mWARNING[0m] - Model valid_loss did not improve for 10 epochs. Stopping the training.[0m
+[[36m02-27 01:49:38[0m][[34mbm.solver[0m][[32mINFO[0m] - Scale Reject | Ratio 0.000%[0m
+wandb: - 0.015 MB of 0.015 MB uploadedwandb: WARNING No program path found, not creating job artifact. See https://docs.wandb.ai/guides/launch/create-job
+wandb: \ 0.015 MB of 0.015 MB uploadedwandb: | 0.015 MB of 0.049 MB uploadedwandb: / 0.015 MB of 0.054 MB uploadedwandb: - 0.054 MB of 0.054 MB uploadedwandb: 
+wandb: Run history:
+wandb:  test/duration █▁▁▁
+wandb:       test/wer █▃▁▁
+wandb: test/wer_vocab █▃▁▁
+wandb: train/duration ▂▅█▆▅▃▅▅▆▃▅▄▅▁
+wandb:     train/loss █▄▃▃▂▂▂▁▁▁▁▁▁▁
+wandb: valid/duration █▁▁▁▁▁▁▁▁▁▁▁▁▁
+wandb:     valid/loss ▇▃▂▁▁▂▂▄▃▄▄▅▅█
+wandb: 
+wandb: Run summary:
+wandb:  test/duration 702.70835
+wandb:       test/wer 0.44608
+wandb: test/wer_vocab 0.2152
+wandb: train/duration 1717.9613
+wandb:     train/loss 0.54469
+wandb: valid/duration 291.34641
+wandb:     valid/loss 2.95874
+wandb: 
+wandb: 🚀 View run 4d9b4a40 at: https://wandb.ai/gnn-neuro/brainmagick/runs/4d9b4a40
+wandb: Synced 6 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240226_155108-4d9b4a40/logs
