@@ -69,3 +69,4 @@ def explorer(launcher):
             sub({'dset.features_params.Wav2VecTransformer.layers' : [9]})
             sub({'dset.condition': 3.0})
             sub({'is_sound': False})
+            sub({'simpleconv.conv_dropout' : 0.2 , 'simpleconv.depth': 6, 'is_sound': True})

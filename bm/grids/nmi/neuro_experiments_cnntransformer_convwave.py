@@ -30,3 +30,18 @@ def explorer(launcher):
                  'feature_model_params.n_out_channels' : 32, 'cnntransformer.out_channels_transformer': 32, 
                  'feature_model_params.layers_block': True, 'feature_model_params.layers_number': 1,
                  'feature_model_params.activation': 'gelu', 'feature_model_params.layers_dropout': 0.6})
+            sub({'feature_model_params.dropout_value' : 0.3,
+                 'feature_model_params.n_out_channels' : 32,
+                 'cnntransformer.depth' : 4,
+                 'simpleconv.conv_dropout' : 0.2,
+                 'cnntransformer.out_channels_transformer': 32, 
+                 'feature_model_params.layers_block': True, 'feature_model_params.layers_number': 1,
+                 'feature_model_params.activation': 'gelu', 'feature_model_params.layers_dropout': 0.6})
+            
+            sub({'feature_model_params.dropout_value' : 0.3,
+                 'feature_model_params.n_out_channels' : 32,
+                 'cnntransformer.depth' : 4,
+                 'cnntransformer.conv_dropout' : 0.2,
+                 'cnntransformer.out_channels_transformer': 32, 
+                 'feature_model_params.layers_block': True, 'feature_model_params.layers_number': 1,
+                 'feature_model_params.activation': 'gelu', 'feature_model_params.layers_dropout': 0.6})

@@ -15,11 +15,11 @@ wandb:
 
 # Logging and printing, and does not impact training
 num_prints: 5
-device: cuda:1
+device: cuda:0
 verbose: 0
 show: 0   # just show the model and its size and exit
 download_only: false  # if set to true, will stop immediately after having prepared the dataset.
-is_sound: true
+is_sound: false
 
 # Slurm
 slurm:

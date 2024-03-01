@@ -25,3 +25,13 @@ def explorer(launcher):
         for seed, dset in product(seeds, audio_sets):
             sub = launcher.bind({'dset.selections': [dset],'dset.bandpass': True, 'dset.bandpass_high': 0.1, 'dset.bandpass_lower' : 40.0}, seed=seed)
             sub()
+            sub({'is_sound': True})
+            sub({'is_sound': True})
+            sub({ 'cnntransformer.depth' : 4,
+                 'cnntransformer.conv_dropout' : 0.2})
+            sub({ 'cnntransformer.depth' : 4,
+                 'cnntransformer.conv_dropout' : 0.2})
+            sub({ 'cnntransformer.depth' : 4,
+                 'cnntransformer.depth_transformer' : 3})
+            
+            

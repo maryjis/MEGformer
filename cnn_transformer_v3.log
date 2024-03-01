@@ -1,0 +1,877 @@
+nohup: ignoring input
+Hostname bagration not defined in /conf/study_paths/study_paths.yaml. Using default paths.
+[1mParser[0m Injecting argv ['model=clip_cnntransformer', 'dset.selections=["gwilliams2022"]', 'dset.bandpass=true', 'dset.bandpass_high=0.1', 'dset.bandpass_lower=40.0', 'seed=2037', 'cnntransformer.depth=4', 'cnntransformer.conv_dropout=0.2'] from sig 53a95efb
+{'wandb': {'use_wandb': True, 'project': 'brainmagick', 'group': 'brainmagick-group'}, 'num_prints': 5, 'device': 'cuda:3', 'verbose': 0, 'show': 0, 'download_only': False, 'is_sound': False, 'slurm': {'mem_per_gpu': 100, 'time': 4320}, 'continue_sig': None, 'continue_best': True, 'seed': 2037, 'dummy': None, 'cache': './cache', 'features_models': './features_models', 'early_stop_patience': 10, 'eval_every': 1, 'eval_train_set': False, 'optim': {'name': 'adam', 'shuffle': False, 'lr': 0.0003, 'beta2': 0.999, 'eps': 1e-08, 'epochs': 200, 'batch_size': 256, 'loss': 'clip', 'weight_decay': 0.0, 'use_weighting': False, 'max_batches': 1200, 'svd': 0.0, 'negatives': None, 'negative_pool_size': None, 'scheduler': {'name': 'None'}}, 'clip': {'linear': None, 'twin': True, 'pool': False, 'tmin': None, 'tmax': None, 'tmin_train': None, 'tmax_train': None, 'center': False, 'probabilities': False}, 'test': {'wer_negatives': 10000, 'wer_topx': 10, 'wer_random': False, 'wer_recordings': 40, 'wer_study': None}, 'dset': {'selections': ['gwilliams2022'], 'tmin': -0.5, 'tmax': 2.5, 'n_recordings': 1000, 'n_subjects': None, 'n_subjects_test': None, 'shuffle_recordings_seed': -1, 'skip_recordings': 0, 'test_ratio': 0.2, 'valid_ratio': 0.1, 'remove_ratio': 0.0, 'condition': 0.5, 'apply_baseline': True, 'min_block_duration': 6, 'force_uid_assignement': False, 'min_n_blocks_per_split': 1, 'ignore_end_in_block': False, 'ignore_start_in_block': False, 'sample_rate': 120, 'highpass': 0, 'bandpass': True, 'bandpass_high': 0.1, 'bandpass_lower': 40.0, 'event_mask': True, 'split_wav_as_block': True, 'allow_empty_split': False, 'autoreject': False, 'test': {'tmin': None, 'tmax': None, 'condition': 'word'}, 'features': ['Wav2VecTransformer'], 'extra_test_features': [], 'features_params': {'MelSpectrum': {'n_fft': 512, 'n_mels': 120, 'normalized': True, 'use_log_scale': True, 'log_scale_eps': 1e-05}, 'Pitch': {'min_f0': 100, 'max_f0': 350}, 'WordHash': {'buckets': 100000}, 'XlmEmbedding': {'contextual': False}, 'WordEmbedding': {'lang': 'auto'}, 'WordEmbeddingSmall': {'lang': 'auto'}, 'PartOfSpeech': {'lang': 'auto'}, 'Wav2VecTransformer': {'layers': [14, 15, 16, 17, 18], 'device': 'cpu', 'random': False, 'is_interpolate': True, 'size': 150}, 'Wav2VecChunk': {'device': 'cpu'}}}, 'override_n_subjects_model': None, 'norm': {'scaler': {'per_channel': False, 'n_samples_per_recording': 200, 'n_samples_features': 8000}, 'max_scale': 20.0, 'clip': True, 'exclude_empty_features': False}, 'task': {'type': 'decode', 'meg_init': 0.3, 'lowpass': 0, 'offset_meg_ms': 150, 'lowpass_gt': True, 'lowpass_gt_test': False, 'mask_loss': False}, 'dora': {'dir': './outputs', 'exclude': ['wandb.*', 'num_prints', 'device', 'num_workers', 'verbose', 'cache', 'features_models'], 'git_save': True}, 'model_name': 'cnntransformer', 'convrnn': {'concatenate': False, 'depth': 2, 'linear_out': False, 'complex_out': False, 'kernel_size': 4, 'stride': 2, 'growth': 1.0, 'lstm': 4, 'bidirectional_lstm': False, 'flip_lstm': False, 'attention': 0, 'heads': 4, 'conv_dropout': 0.0, 'lstm_dropout': 0.0, 'dropout_input': 0.0, 'batch_norm': False, 'relu_leakiness': 0.0, 'subject_dim': 64, 'embedding_location': ['lstm'], 'embedding_scale': 1.0, 'subject_layers': False, 'subject_layers_dim': 'input'}, 'simpleconv': {'concatenate': False, 'depth': 4, 'linear_out': False, 'complex_out': False, 'dilation_growth': 2, 'dilation_period': None, 'skip': False, 'post_skip': False, 'growth': 1.0, 'scale': None, 'rewrite': False, 'groups': 1, 'glu': 0, 'glu_context': 0, 'glu_glu': True, 'gelu': False, 'dual_path': 0, 'conv_dropout': 0.0, 'dropout_input': 0.0, 'batch_norm': False, 'relu_leakiness': 0.0, 'subject_dim': 64, 'subject_layers': False, 'embedding_scale': 1.0, 'subject_layers_dim': 'input', 'subject_layers_id': False, 'n_fft': None, 'fft_complex': True, 'merger': False, 'merger_pos_dim': 256, 'merger_channels': 270, 'merger_dropout': 0.2, 'merger_penalty': 0.0, 'merger_per_subject': False, 'dropout': 0.0, 'dropout_rescale': True, 'initial_linear': 0, 'initial_depth': 1, 'initial_nonlin': False, 'avg_pool_out': False, 'adaptive_pooling_size': '1,', 'flatten_out_channels': 512, 'strides': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'kernel_size': [3, 3, 3, 3, 3, 3, 3, 3, 3, 3], 'padding': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'seq_len': -1, 'auto_padding': True, 'is_deformable_conv': False}, 'simpletransformer': {'hidden': {'meg': 320}, 'depth': 4, 'nhead': 8, 'subject_layers': False, 'positional_embedding': False, 'merger': False, 'merger_pos_dim': 2048, 'merger_channels': 272, 'model_type': 'basic', 'dim_ff': 2048, 'attention_window': [32, 32, 32, 32]}, 'timesnet': {'hidden': {'meg': 320}, 'depth': 2, 'subject_layers': False, 'sequence_lenth': 361, 'num_kernels': 6, 'top_k': 3, 'dropout_projection': 0.3, 'd_model': 32, 'd_ff': 32, 'flatten_out_channels': 1024, 'merger': False, 'merger_pos_dim': 2048, 'merger_channels': 270, 'enc_embedding': True}, 'cnntransformer': {'hidden': {'meg': 320}, 'batch_norm': True, 'depth': 4, 'dilation_period': 4, 'skip': True, 'subject_layers': True, 'subject_dim': 0, 'complex_out': True, 'glu': 2, 'glu_context': 1, 'merger': True, 'initial_linear': 270, 'gelu': True, 'merger_pos_dim': 2048, 'avg_pool_out': False, 'adaptive_pooling_size': 1, 'flatten_out': True, 'flatten_out_channels': 264, 'strides': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'conv_dropout': 0.2, 'kernel_size': [3, 3, 3, 3, 3, 3, 3, 3, 3, 3], 'padding': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1], 'seq_len': 361, 'auto_padding': True, 'is_deformable_conv': False, 'in_channels_tranformer': 264, 'out_channels_transformer': 1024, 'dim_ff': 2048, 'nhead': 8, 'positional_embedding': 'False,', 'positional_embedding_dropout': 0.0, 'depth_transformer': 2}, 'num_workers': 5, 'feature_model_name': None, 'selections': {'audio_mous': {'study': 'schoffelen2019', 'modality': 'audio', 'events_filter': None}, 'audio_mous_wl': {'study': 'schoffelen2019', 'modality': 'audio', 'events_filter': 'condition == "word_list"'}, 'visual_mous': {'study': 'schoffelen2019', 'modality': 'visual', 'events_filter': None}, 'gwilliams2022': {'study': 'gwilliams2022'}, 'broderick2019': {'study': 'broderick2019'}, 'fake': {'study': 'fake'}, 'brennan2019': {'study': 'brennan2019'}}, 'study_paths': {'default': {'gwilliams2022': './data/gwilliams2022/', 'schoffelen2019': './data/schoffelen2019/', 'brennan2019': './data/brennan2019/', 'broderick2019': './data/broderick2019/'}}}
+[2024-02-29 22:47:39,252][bm._env][WARNING] - Hostname bagration not defined in /conf/study_paths/study_paths.yaml. Using default paths.
+[2024-02-29 22:47:39,290][bm.train][INFO] - For logs, checkpoints and samples, check /home/zubrikhina/brainmagick_MICCAI/outputs/xps/53a95efb.
+[2024-02-29 22:47:39,290][bm.train][INFO] - Caching intermediate data under /home/zubrikhina/brainmagick_MICCAI/cache.
+/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/hydra/_internal/hydra.py:119: UserWarning: Future Hydra versions will no longer change working directory at job runtime by default.
+See https://hydra.cc/docs/1.2/upgrades/1.1_to_1.2/changes_to_job_working_dir/ for more information.
+  ret = run_job(
+[[36m02-29 22:47:39[0m][[34mdora.distrib[0m][[32mINFO[0m] - world_size is 1, skipping init.[0m
+[[36m02-29 22:47:39[0m][[34mbm.dataset[0m][[33mWARNING[0m] - Requested 1000 recordings but only found 196[0m
+[[36m02-29 22:47:43[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 1/196.[0m
+[[36m02-29 22:47:43[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 2/196.[0m
+[[36m02-29 22:47:51[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 5/196.[0m
+[[36m02-29 22:47:52[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 6/196.[0m
+[[36m02-29 22:47:59[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 9/196.[0m
+[[36m02-29 22:47:59[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 10/196.[0m
+[[36m02-29 22:48:06[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 13/196.[0m
+[[36m02-29 22:48:07[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 14/196.[0m
+[[36m02-29 22:48:14[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 17/196.[0m
+[[36m02-29 22:48:15[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 18/196.[0m
+[[36m02-29 22:48:22[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 21/196.[0m
+[[36m02-29 22:48:23[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 22/196.[0m
+[[36m02-29 22:48:29[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 25/196.[0m
+[[36m02-29 22:48:30[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 26/196.[0m
+[[36m02-29 22:48:37[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 29/196.[0m
+[[36m02-29 22:48:38[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 30/196.[0m
+[[36m02-29 22:48:45[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 33/196.[0m
+[[36m02-29 22:48:46[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 34/196.[0m
+[[36m02-29 22:48:53[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 37/196.[0m
+[[36m02-29 22:48:54[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 38/196.[0m
+[[36m02-29 22:49:00[0m][[34mbm.dataset[0m][[32mINFO[0m] - Loading Subjects | 39/196 | 0.51 it/sec[0m
+[[36m02-29 22:49:01[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 41/196.[0m
+[[36m02-29 22:49:02[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 42/196.[0m
+[[36m02-29 22:49:08[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 45/196.[0m
+[[36m02-29 22:49:09[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 46/196.[0m
+[[36m02-29 22:49:16[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 49/196.[0m
+[[36m02-29 22:49:17[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 50/196.[0m
+[[36m02-29 22:49:24[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 53/196.[0m
+[[36m02-29 22:49:25[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 54/196.[0m
+[[36m02-29 22:49:32[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 57/196.[0m
+[[36m02-29 22:49:33[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 58/196.[0m
+[[36m02-29 22:49:39[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 61/196.[0m
+[[36m02-29 22:49:40[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 62/196.[0m
+[[36m02-29 22:49:48[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 65/196.[0m
+[[36m02-29 22:49:49[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 66/196.[0m
+[[36m02-29 22:49:56[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 69/196.[0m
+[[36m02-29 22:49:56[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 70/196.[0m
+[[36m02-29 22:50:03[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 73/196.[0m
+[[36m02-29 22:50:04[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 74/196.[0m
+[[36m02-29 22:50:11[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 77/196.[0m
+[[36m02-29 22:50:12[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 78/196.[0m
+[[36m02-29 22:50:15[0m][[34mbm.dataset[0m][[32mINFO[0m] - Loading Subjects | 78/196 | 0.52 it/sec[0m
+[[36m02-29 22:50:19[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 81/196.[0m
+[[36m02-29 22:50:20[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 82/196.[0m
+[[36m02-29 22:50:27[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 85/196.[0m
+[[36m02-29 22:50:28[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 86/196.[0m
+[[36m02-29 22:50:35[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 89/196.[0m
+[[36m02-29 22:50:36[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 90/196.[0m
+[[36m02-29 22:50:43[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 93/196.[0m
+[[36m02-29 22:50:44[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 94/196.[0m
+[[36m02-29 22:50:51[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 97/196.[0m
+[[36m02-29 22:50:52[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 98/196.[0m
+[[36m02-29 22:50:59[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 101/196.[0m
+[[36m02-29 22:51:00[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 102/196.[0m
+[[36m02-29 22:51:07[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 105/196.[0m
+[[36m02-29 22:51:08[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 106/196.[0m
+[[36m02-29 22:51:15[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 109/196.[0m
+[[36m02-29 22:51:16[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 110/196.[0m
+[[36m02-29 22:51:23[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 113/196.[0m
+[[36m02-29 22:51:24[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 114/196.[0m
+[[36m02-29 22:51:31[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 117/196.[0m
+[[36m02-29 22:51:32[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 118/196.[0m
+[[36m02-29 22:51:33[0m][[34mbm.dataset[0m][[32mINFO[0m] - Loading Subjects | 117/196 | 0.51 it/sec[0m
+[[36m02-29 22:51:39[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 121/196.[0m
+[[36m02-29 22:51:40[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 122/196.[0m
+[[36m02-29 22:51:47[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 125/196.[0m
+[[36m02-29 22:51:48[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 126/196.[0m
+[[36m02-29 22:51:55[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 129/196.[0m
+[[36m02-29 22:51:56[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 130/196.[0m
+[[36m02-29 22:52:03[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 133/196.[0m
+[[36m02-29 22:52:04[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 134/196.[0m
+[[36m02-29 22:52:11[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 137/196.[0m
+[[36m02-29 22:52:12[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 138/196.[0m
+[[36m02-29 22:52:20[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 141/196.[0m
+[[36m02-29 22:52:20[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 142/196.[0m
+[[36m02-29 22:52:27[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 145/196.[0m
+[[36m02-29 22:52:28[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 146/196.[0m
+[[36m02-29 22:52:35[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 149/196.[0m
+[[36m02-29 22:52:36[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 150/196.[0m
+[[36m02-29 22:52:44[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 153/196.[0m
+[[36m02-29 22:52:45[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 154/196.[0m
+[[36m02-29 22:52:52[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 157/196.[0m
+[[36m02-29 22:52:52[0m][[34mbm.dataset[0m][[32mINFO[0m] - Loading Subjects | 156/196 | 0.51 it/sec[0m
+[[36m02-29 22:52:53[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 158/196.[0m
+[[36m02-29 22:53:00[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 161/196.[0m
+[[36m02-29 22:53:00[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 162/196.[0m
+[[36m02-29 22:53:08[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 165/196.[0m
+[[36m02-29 22:53:09[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 166/196.[0m
+[[36m02-29 22:53:16[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 169/196.[0m
+[[36m02-29 22:53:17[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 170/196.[0m
+[[36m02-29 22:53:24[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 173/196.[0m
+[[36m02-29 22:53:25[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 174/196.[0m
+[[36m02-29 22:53:32[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 177/196.[0m
+[[36m02-29 22:53:33[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 178/196.[0m
+[[36m02-29 22:53:40[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 181/196.[0m
+[[36m02-29 22:53:41[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 182/196.[0m
+[[36m02-29 22:53:49[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 185/196.[0m
+[[36m02-29 22:53:50[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 186/196.[0m
+[[36m02-29 22:53:57[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 189/196.[0m
+[[36m02-29 22:53:58[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 190/196.[0m
+[[36m02-29 22:54:05[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 193/196.[0m
+[[36m02-29 22:54:06[0m][[34mbm.dataset[0m][[33mWARNING[0m] - No blocks found for split 2/3 of recording 194/196.[0m
+[[36m02-29 22:54:13[0m][[34mbm.dataset[0m][[32mINFO[0m] - Loading Subjects | 195/196 | 0.50 it/sec[0m
+[[36m02-29 22:54:13[0m][[34mbm.dataset[0m][[32mINFO[0m] - # Examples (train | valid | test): 314922 | 37249 | 55223[0m
+[[36m02-29 22:54:13[0m][[34mbm.train[0m][[32mINFO[0m] - Model hash: 77748adf440528a0b4f1c8c5d923123d99e9d60d[0m
+/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/flashy/loggers/tensorboard.py:47: UserWarning: tensorboard package was not found: use pip install tensorboard
+  warnings.warn("tensorboard package was not found: use pip install tensorboard")
+wandb: Currently logged in as: almachan2358 (gnn-neuro). Use `wandb login --relogin` to force relogin
+wandb: wandb version 0.16.3 is available!  To upgrade, please run:
+wandb:  $ pip install wandb --upgrade
+wandb: Tracking run with wandb version 0.16.1
+wandb: Run data is saved locally in /home/zubrikhina/brainmagick_MICCAI/outputs/xps/53a95efb/wandb/run-20240229_225420-53a95efb
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Resuming run 53a95efb
+wandb: ⭐️ View project at https://wandb.ai/gnn-neuro/brainmagick
+wandb: 🚀 View run at https://wandb.ai/gnn-neuro/brainmagick/runs/53a95efb
+[[36m02-29 22:54:23[0m][[34mbm.solver[0m][[32mINFO[0m] - Replaying past metrics...[0m
+[[36m02-29 22:54:23[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 0 | loss=3.5101 | duration=2786.4420[0m
+[[36m02-29 22:54:23[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 0 | loss=1.8594 | duration=478.0556[0m
+[[36m02-29 22:54:23[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTest Summary | Epoch 0 | wer=48.634% | wer_vocab=21.721% | duration=582.3479[0m
+[[36m02-29 22:54:23[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 1 | loss=1.8125 | duration=3060.5015[0m
+[[36m02-29 22:54:23[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 1 | loss=1.5317 | duration=479.7707[0m
+[[36m02-29 22:54:23[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTest Summary | Epoch 1 | wer=40.772% | wer_vocab=16.557% | duration=576.2904[0m
+[[36m02-29 22:54:23[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 2 | loss=1.4782 | duration=3063.2840[0m
+[[36m02-29 22:54:23[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 2 | loss=1.4293 | duration=483.4031[0m
+[[36m02-29 22:54:23[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTest Summary | Epoch 2 | wer=37.098% | wer_vocab=14.321% | duration=573.9718[0m
+264
+CNNTransformer(
+  (merger): ChannelMerger(
+    (embedding): FourierEmb()
+  )
+  (initial_linear): Sequential(
+    (0): Conv1d(270, 270, kernel_size=(1,), stride=(1,))
+  )
+  (subject_layers): SubjectLayers(270, 270, 27)
+  (final): Sequential(
+    (0): Conv1d(320, 640, kernel_size=(1,), stride=(1,))
+    (1): GELU(approximate='none')
+    (2): ConvTranspose1d(640, 264, kernel_size=(1,), stride=(1,))
+  )
+  (encoders): ModuleDict(
+    (meg): ConvSequence(
+      (sequence): ModuleList(
+        (0): Sequential(
+          (0): Conv1d(270, 320, kernel_size=(3,), stride=(1,), padding=(1,))
+          (1): BatchNorm1d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): GELU(approximate='none')
+          (3): Dropout(p=0.2, inplace=False)
+        )
+        (1): Sequential(
+          (0): Conv1d(320, 320, kernel_size=(3,), stride=(1,), padding=(2,), dilation=(2,))
+          (1): BatchNorm1d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): GELU(approximate='none')
+          (3): Dropout(p=0.2, inplace=False)
+        )
+        (2): Sequential(
+          (0): Conv1d(320, 320, kernel_size=(3,), stride=(1,), padding=(4,), dilation=(4,))
+          (1): BatchNorm1d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): GELU(approximate='none')
+          (3): Dropout(p=0.2, inplace=False)
+        )
+        (3): Sequential(
+          (0): Conv1d(320, 320, kernel_size=(3,), stride=(1,), padding=(8,), dilation=(8,))
+          (1): BatchNorm1d(320, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (2): GELU(approximate='none')
+          (3): Dropout(p=0.2, inplace=False)
+        )
+      )
+      (glus): ModuleList(
+        (0): None
+        (1): Sequential(
+          (0): Conv1d(320, 640, kernel_size=(3,), stride=(1,), padding=(1,))
+          (1): GLU(dim=1)
+        )
+        (2): None
+        (3): Sequential(
+          (0): Conv1d(320, 640, kernel_size=(3,), stride=(1,), padding=(1,))
+          (1): GLU(dim=1)
+        )
+      )
+    )
+  )
+  (positional_embedding): PositionalEncoding(
+    (dropout): Dropout(p=0.0, inplace=False)
+  )
+  (layers): Sequential(
+    (0): TransformerEncoderLayer(
+      (self_attn): MultiheadAttention(
+        (out_proj): NonDynamicallyQuantizableLinear(in_features=264, out_features=264, bias=True)
+      )
+      (linear1): Linear(in_features=264, out_features=2048, bias=True)
+      (dropout): Dropout(p=0.1, inplace=False)
+      (linear2): Linear(in_features=2048, out_features=264, bias=True)
+      (norm1): LayerNorm((264,), eps=1e-05, elementwise_affine=True)
+      (norm2): LayerNorm((264,), eps=1e-05, elementwise_affine=True)
+      (dropout1): Dropout(p=0.1, inplace=False)
+      (dropout2): Dropout(p=0.1, inplace=False)
+    )
+  )
+  (last): Linear(in_features=264, out_features=1024, bias=True)
+)
+None
+None
+[[36m02-29 23:02:53[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 4 | 240/1200 | 0.48 it/sec | loss 1.3211[0m
+[[36m02-29 23:11:15[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 4 | 480/1200 | 0.48 it/sec | loss 1.3078[0m
+[[36m02-29 23:19:37[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 4 | 720/1200 | 0.48 it/sec | loss 1.3002[0m
+[[36m02-29 23:29:19[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 4 | 960/1200 | 0.46 it/sec | loss 1.2771[0m
+[[36m02-29 23:39:30[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 4 | loss=1.2645 | duration=2706.1605[0m
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+[[36m02-29 23:41:11[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 4 | 29/146 | 0.30 it/sec | loss 1.3797[0m
+[[36m02-29 23:42:44[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 4 | 58/146 | 0.31 it/sec | loss 1.3960[0m
+[[36m02-29 23:44:04[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 4 | 87/146 | 0.32 it/sec | loss 1.4089[0m
+[[36m02-29 23:45:31[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 4 | 116/146 | 0.33 it/sec | loss 1.4140[0m
+[[36m02-29 23:47:05[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 4 | 145/146 | 0.32 it/sec | loss 1.4057[0m
+[[36m02-29 23:47:06[0m][[34mbm.solver[0m][[32mINFO[0m] - [1mNew best valid loss 1.4057[0m
+[[36m02-29 23:47:06[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 4 | loss=1.4057 | duration=456.3116[0m
+[[36m02-29 23:47:43[0m][[34mbm.wer[0m][[32mINFO[0m] - WER | 9/45 | 0.29 it/sec[0m
+[[36m02-29 23:48:10[0m][[34mbm.wer[0m][[32mINFO[0m] - WER | 18/45 | 0.31 it/sec[0m
+[[36m02-29 23:48:34[0m][[34mbm.wer[0m][[32mINFO[0m] - WER | 27/45 | 0.33 it/sec[0m
+[[36m02-29 23:48:55[0m][[34mbm.wer[0m][[32mINFO[0m] - WER | 36/45 | 0.35 it/sec[0m
+[[36m02-29 23:49:58[0m][[34mbm.wer[0m][[32mINFO[0m] - wer 10000 negatives selected[0m
+[[36m02-29 23:51:19[0m][[34mbm.wer[0m][[32mINFO[0m] - WER Rank | 2254/11270 | 28.66 it/sec[0m
+[[36m02-29 23:52:37[0m][[34mbm.wer[0m][[32mINFO[0m] - WER Rank | 4508/11270 | 28.68 it/sec[0m
+[[36m02-29 23:53:56[0m][[34mbm.wer[0m][[32mINFO[0m] - WER Rank | 6762/11270 | 28.68 it/sec[0m
+[[36m02-29 23:55:15[0m][[34mbm.wer[0m][[32mINFO[0m] - WER Rank | 9016/11270 | 28.65 it/sec[0m
+[[36m02-29 23:56:36[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTest Summary | Epoch 4 | wer=36.655% | wer_vocab=14.099% | duration=569.6596[0m
+[[36m02-29 23:56:36[0m][[34mbm.solver[0m][[32mINFO[0m] - Scale Reject | Ratio 0.000%[0m
+[[36m03-01 00:06:34[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 5 | 240/1200 | 0.41 it/sec | loss 1.0969[0m
+[[36m03-01 00:15:39[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 5 | 480/1200 | 0.42 it/sec | loss 1.0952[0m
+[[36m03-01 00:25:00[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 5 | 720/1200 | 0.42 it/sec | loss 1.0950[0m
+[[36m03-01 00:34:21[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 5 | 960/1200 | 0.42 it/sec | loss 1.0865[0m
+[[36m03-01 00:43:39[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 5 | loss=1.0761 | duration=2822.6276[0m
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+[[36m03-01 00:45:11[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 5 | 29/146 | 0.34 it/sec | loss 1.4338[0m
+[[36m03-01 00:46:34[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 5 | 58/146 | 0.34 it/sec | loss 1.4286[0m
+[[36m03-01 00:48:07[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 5 | 87/146 | 0.33 it/sec | loss 1.4383[0m
+[[36m03-01 00:49:39[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 5 | 116/146 | 0.33 it/sec | loss 1.4408[0m
+[[36m03-01 00:50:59[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 5 | 145/146 | 0.33 it/sec | loss 1.4395[0m
+[[36m03-01 00:51:00[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 5 | loss=1.4395 | duration=441.4886[0m
+[[36m03-01 00:51:00[0m][[34mbm.solver[0m][[32mINFO[0m] - Scale Reject | Ratio 0.000%[0m
+[[36m03-01 01:00:51[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 6 | 240/1200 | 0.41 it/sec | loss 1.0160[0m
+[[36m03-01 01:10:08[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 6 | 480/1200 | 0.42 it/sec | loss 1.0066[0m
+[[36m03-01 01:19:42[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 6 | 720/1200 | 0.42 it/sec | loss 1.0041[0m
+[[36m03-01 01:29:17[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 6 | 960/1200 | 0.42 it/sec | loss 0.9956[0m
+[[36m03-01 01:38:45[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 6 | loss=0.9916 | duration=2864.2536[0m
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+[[36m03-01 01:40:18[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 6 | 29/146 | 0.34 it/sec | loss 1.4457[0m
+[[36m03-01 01:41:47[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 6 | 58/146 | 0.33 it/sec | loss 1.4783[0m
+[[36m03-01 01:43:16[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 6 | 87/146 | 0.33 it/sec | loss 1.4600[0m
+[[36m03-01 01:44:40[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 6 | 116/146 | 0.33 it/sec | loss 1.4564[0m
+[[36m03-01 01:46:01[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 6 | 145/146 | 0.34 it/sec | loss 1.4548[0m
+[[36m03-01 01:46:02[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 6 | loss=1.4548 | duration=436.2966[0m
+[[36m03-01 01:46:02[0m][[34mbm.solver[0m][[32mINFO[0m] - Scale Reject | Ratio 0.000%[0m
+[[36m03-01 01:55:52[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 7 | 240/1200 | 0.41 it/sec | loss 0.8953[0m
+[[36m03-01 02:05:10[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 7 | 480/1200 | 0.42 it/sec | loss 0.8960[0m
+[[36m03-01 02:14:43[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 7 | 720/1200 | 0.42 it/sec | loss 0.8953[0m
+[[36m03-01 02:24:11[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 7 | 960/1200 | 0.42 it/sec | loss 0.8938[0m
+[[36m03-01 02:33:17[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 7 | loss=0.8857 | duration=2834.5435[0m
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+[[36m03-01 02:34:56[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 7 | 29/146 | 0.31 it/sec | loss 1.4893[0m
+[[36m03-01 02:36:27[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 7 | 58/146 | 0.32 it/sec | loss 1.4931[0m
+[[36m03-01 02:37:54[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 7 | 87/146 | 0.32 it/sec | loss 1.4848[0m
+[[36m03-01 02:39:24[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 7 | 116/146 | 0.32 it/sec | loss 1.4837[0m
+[[36m03-01 02:40:45[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 7 | 145/146 | 0.33 it/sec | loss 1.4815[0m
+[[36m03-01 02:40:46[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 7 | loss=1.4815 | duration=449.2827[0m
+[[36m03-01 02:40:46[0m][[34mbm.solver[0m][[32mINFO[0m] - Scale Reject | Ratio 0.000%[0m
+[[36m03-01 02:50:22[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 8 | 240/1200 | 0.42 it/sec | loss 0.8120[0m
+[[36m03-01 02:59:54[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 8 | 480/1200 | 0.42 it/sec | loss 0.8233[0m
+[[36m03-01 03:09:23[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 8 | 720/1200 | 0.42 it/sec | loss 0.8238[0m
+[[36m03-01 03:18:45[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 8 | 960/1200 | 0.42 it/sec | loss 0.8182[0m
+[[36m03-01 03:28:06[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 8 | loss=0.8218 | duration=2839.2883[0m
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+[[36m03-01 03:29:35[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 8 | 29/146 | 0.35 it/sec | loss 1.5485[0m
+[[36m03-01 03:31:02[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 8 | 58/146 | 0.34 it/sec | loss 1.5307[0m
+[[36m03-01 03:32:34[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 8 | 87/146 | 0.33 it/sec | loss 1.5246[0m
+[[36m03-01 03:34:09[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 8 | 116/146 | 0.33 it/sec | loss 1.5294[0m
+[[36m03-01 03:35:31[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 8 | 145/146 | 0.33 it/sec | loss 1.5315[0m
+[[36m03-01 03:35:32[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 8 | loss=1.5315 | duration=446.2619[0m
+[[36m03-01 03:35:32[0m][[34mbm.solver[0m][[32mINFO[0m] - Scale Reject | Ratio 0.000%[0m
+[[36m03-01 03:45:05[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 9 | 240/1200 | 0.42 it/sec | loss 0.7117[0m
+[[36m03-01 03:54:03[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 9 | 480/1200 | 0.43 it/sec | loss 0.7287[0m
+[[36m03-01 04:03:12[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 9 | 720/1200 | 0.44 it/sec | loss 0.7403[0m
+[[36m03-01 04:12:11[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 9 | 960/1200 | 0.44 it/sec | loss 0.7452[0m
+[[36m03-01 04:21:23[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 9 | loss=0.7446 | duration=2749.8953[0m
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+[[36m03-01 04:22:52[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 9 | 29/146 | 0.35 it/sec | loss 1.5914[0m
+[[36m03-01 04:24:18[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 9 | 58/146 | 0.34 it/sec | loss 1.5736[0m
+[[36m03-01 04:25:55[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 9 | 87/146 | 0.33 it/sec | loss 1.5780[0m
+[[36m03-01 04:27:34[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 9 | 116/146 | 0.32 it/sec | loss 1.5705[0m
+[[36m03-01 04:28:59[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 9 | 145/146 | 0.32 it/sec | loss 1.5632[0m
+[[36m03-01 04:29:00[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 9 | loss=1.5632 | duration=457.1759[0m
+[[36m03-01 04:29:00[0m][[34mbm.solver[0m][[32mINFO[0m] - Scale Reject | Ratio 0.000%[0m
+[[36m03-01 04:39:46[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 10 | 240/1200 | 0.38 it/sec | loss 0.6723[0m
+[[36m03-01 04:50:08[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 10 | 480/1200 | 0.38 it/sec | loss 0.6832[0m
+[[36m03-01 05:00:09[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 10 | 720/1200 | 0.39 it/sec | loss 0.7008[0m
+[[36m03-01 05:10:07[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 10 | 960/1200 | 0.39 it/sec | loss 0.7023[0m
+[[36m03-01 05:20:14[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 10 | loss=0.7067 | duration=3072.8262[0m
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+[[36m03-01 05:22:00[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 10 | 29/146 | 0.29 it/sec | loss 1.6129[0m
+[[36m03-01 05:23:38[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 10 | 58/146 | 0.29 it/sec | loss 1.6400[0m
+[[36m03-01 05:25:20[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 10 | 87/146 | 0.29 it/sec | loss 1.6391[0m
+[[36m03-01 05:27:00[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 10 | 116/146 | 0.29 it/sec | loss 1.6234[0m
+[[36m03-01 05:28:29[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 10 | 145/146 | 0.30 it/sec | loss 1.6131[0m
+[[36m03-01 05:28:30[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 10 | loss=1.6131 | duration=496.1084[0m
+[[36m03-01 05:28:30[0m][[34mbm.solver[0m][[32mINFO[0m] - Scale Reject | Ratio 0.000%[0m
+[[36m03-01 05:38:59[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 11 | 240/1200 | 0.39 it/sec | loss 0.6497[0m
+[[36m03-01 05:49:22[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 11 | 480/1200 | 0.39 it/sec | loss 0.6539[0m
+[[36m03-01 05:59:40[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 11 | 720/1200 | 0.39 it/sec | loss 0.6490[0m
+[[36m03-01 06:10:07[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 11 | 960/1200 | 0.39 it/sec | loss 0.6561[0m
+[[36m03-01 06:20:28[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 11 | loss=0.6580 | duration=3117.8453[0m
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+[[36m03-01 06:22:08[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 11 | 29/146 | 0.31 it/sec | loss 1.6977[0m
+[[36m03-01 06:23:45[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 11 | 58/146 | 0.31 it/sec | loss 1.6669[0m
+[[36m03-01 06:25:23[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 11 | 87/146 | 0.30 it/sec | loss 1.6923[0m
+[[36m03-01 06:26:59[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 11 | 116/146 | 0.30 it/sec | loss 1.7099[0m
+[[36m03-01 06:28:27[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 11 | 145/146 | 0.31 it/sec | loss 1.7055[0m
+[[36m03-01 06:28:28[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 11 | loss=1.7055 | duration=479.9742[0m
+[[36m03-01 06:28:28[0m][[34mbm.solver[0m][[32mINFO[0m] - Scale Reject | Ratio 0.000%[0m
+[[36m03-01 06:39:08[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 12 | 240/1200 | 0.38 it/sec | loss 0.6119[0m
+[[36m03-01 06:49:31[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 12 | 480/1200 | 0.38 it/sec | loss 0.6145[0m
+[[36m03-01 06:59:53[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 12 | 720/1200 | 0.38 it/sec | loss 0.6190[0m
+[[36m03-01 07:10:09[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 12 | 960/1200 | 0.38 it/sec | loss 0.6328[0m
+[[36m03-01 07:20:22[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 12 | loss=0.6317 | duration=3113.3525[0m
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+[[36m03-01 07:22:08[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 12 | 29/146 | 0.29 it/sec | loss 1.6930[0m
+[[36m03-01 07:23:42[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 12 | 58/146 | 0.30 it/sec | loss 1.6887[0m
+[[36m03-01 07:25:19[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 12 | 87/146 | 0.30 it/sec | loss 1.7000[0m
+[[36m03-01 07:26:59[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 12 | 116/146 | 0.30 it/sec | loss 1.7068[0m
+[[36m03-01 07:28:28[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 12 | 145/146 | 0.30 it/sec | loss 1.6879[0m
+[[36m03-01 07:28:29[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 12 | loss=1.6879 | duration=487.0240[0m
+[[36m03-01 07:28:29[0m][[34mbm.solver[0m][[32mINFO[0m] - Scale Reject | Ratio 0.000%[0m
+[[36m03-01 07:39:16[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 13 | 240/1200 | 0.37 it/sec | loss 0.6183[0m
+[[36m03-01 07:49:46[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 13 | 480/1200 | 0.38 it/sec | loss 0.6128[0m
+[[36m03-01 08:00:06[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 13 | 720/1200 | 0.38 it/sec | loss 0.6001[0m
+[[36m03-01 08:10:12[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 13 | 960/1200 | 0.38 it/sec | loss 0.6046[0m
+[[36m03-01 08:20:00[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 13 | loss=0.6027 | duration=3089.6938[0m
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+[[36m03-01 08:21:37[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 13 | 29/146 | 0.32 it/sec | loss 1.6642[0m
+[[36m03-01 08:23:11[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 13 | 58/146 | 0.31 it/sec | loss 1.6903[0m
+[[36m03-01 08:24:42[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 13 | 87/146 | 0.32 it/sec | loss 1.6835[0m
+[[36m03-01 08:26:11[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 13 | 116/146 | 0.32 it/sec | loss 1.6867[0m
+[[36m03-01 08:27:32[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 13 | 145/146 | 0.33 it/sec | loss 1.6906[0m
+[[36m03-01 08:27:33[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 13 | loss=1.6906 | duration=453.6222[0m
+[[36m03-01 08:27:33[0m][[34mbm.solver[0m][[32mINFO[0m] - Scale Reject | Ratio 0.000%[0m
+[[36m03-01 08:37:17[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 14 | 240/1200 | 0.42 it/sec | loss 0.5682[0m
+[[36m03-01 08:46:53[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 14 | 480/1200 | 0.42 it/sec | loss 0.5722[0m
+[[36m03-01 08:56:32[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 14 | 720/1200 | 0.42 it/sec | loss 0.5728[0m
+[[36m03-01 09:06:05[0m][[34mflashy.solver[0m][[32mINFO[0m] - Train | Epoch 14 | 960/1200 | 0.42 it/sec | loss 0.5778[0m
+[[36m03-01 09:14:46[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mTrain Summary | Epoch 14 | loss=0.5843 | duration=2831.8970[0m
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7f01e0e9cc10>
+Traceback (most recent call last):
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1478, in __del__
+    self._shutdown_workers()
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1461, in _shutdown_workers
+    if w.is_alive():
+  File "/home/zubrikhina/anaconda3/envs/bm/lib/python3.8/multiprocessing/process.py", line 160, in is_alive
+    assert self._parent_pid == os.getpid(), 'can only test a child process'
+AssertionError: can only test a child process
+[[36m03-01 09:16:15[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 14 | 29/146 | 0.35 it/sec | loss 1.7283[0m
+[[36m03-01 09:17:30[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 14 | 58/146 | 0.37 it/sec | loss 1.7085[0m
+[[36m03-01 09:18:52[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 14 | 87/146 | 0.36 it/sec | loss 1.7133[0m
+[[36m03-01 09:20:11[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 14 | 116/146 | 0.36 it/sec | loss 1.6983[0m
+[[36m03-01 09:21:23[0m][[34mflashy.solver[0m][[32mINFO[0m] - Valid | Epoch 14 | 145/146 | 0.37 it/sec | loss 1.6889[0m
+[[36m03-01 09:21:24[0m][[34mflashy.solver[0m][[32mINFO[0m] - [1mValid Summary | Epoch 14 | loss=1.6889 | duration=398.3105[0m
+[[36m03-01 09:21:24[0m][[34mbm.solver[0m][[33mWARNING[0m] - Model valid_loss did not improve for 10 epochs. Stopping the training.[0m
+[[36m03-01 09:21:24[0m][[34mbm.solver[0m][[32mINFO[0m] - Scale Reject | Ratio 0.000%[0m
+wandb: WARNING No requirements.txt found, not creating job artifact. See https://docs.wandb.ai/guides/launch/create-job
+wandb: - 0.000 MB of 0.000 MB uploadedwandb: \ 0.000 MB of 0.019 MB uploadedwandb: | 0.019 MB of 0.019 MB uploadedwandb: 
+wandb: Run history:
+wandb:  test/duration ▁
+wandb:       test/wer ▁
+wandb: test/wer_vocab ▁
+wandb: train/duration ▁▃▄▃▃▂▇███▃
+wandb:     train/loss █▆▅▄▃▃▂▂▁▁▁
+wandb: valid/duration ▅▄▄▅▄▅█▇▇▅▁
+wandb:     valid/loss ▁▂▂▃▄▅▆████
+wandb: 
+wandb: Run summary:
+wandb:  test/duration 569.65956
+wandb:       test/wer 0.36655
+wandb: test/wer_vocab 0.14099
+wandb: train/duration 2831.89698
+wandb:     train/loss 0.58428
+wandb: valid/duration 398.31046
+wandb:     valid/loss 1.68892
+wandb: 
+wandb: 🚀 View run 53a95efb at: https://wandb.ai/gnn-neuro/brainmagick/runs/53a95efb
+wandb: Synced 3 W&B file(s), 0 media file(s), 0 artifact file(s) and 0 other file(s)
+wandb: Find logs at: ./wandb/run-20240229_225420-53a95efb/logs
