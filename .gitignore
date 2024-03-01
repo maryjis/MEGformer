@@ -22,3 +22,4 @@ resources
 draft_notebooks/
 submitit_*/
 /wandb
+cache_new/

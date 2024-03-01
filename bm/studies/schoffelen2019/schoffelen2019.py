@@ -168,7 +168,8 @@ class Schoffelen2019Recording(api.Recording):
 
         # Create blocks
         events_df[['language', 'modality']] = self.language, self.modality
-        events_df = events_df.event.create_blocks(groupby='sentence_or_sound')
+        # events_df = events_df.event.create_blocks(groupby='sentence_or_sound')
+        events_df = events_df.event.create_blocks(groupby='sound')
 
         return events_df
 

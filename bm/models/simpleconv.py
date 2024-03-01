@@ -194,7 +194,9 @@ class SimpleConv(nn.Module):
         elif complex_out:
             self.final = nn.Sequential(
                 nn.Conv1d(final_channels, 2 * final_channels, 1),
+                # nn.Conv1d(final_channels, 128, 1),
                 activation(),
+                # nn.ConvTranspose1d(128, out_channels, kernel, stride, pad))
                 nn.ConvTranspose1d(2 * final_channels, out_channels, kernel, stride, pad))
         elif avg_pool_out:
             self.adaptive_pooling_size =adaptive_pooling_size

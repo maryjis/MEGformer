@@ -136,6 +136,7 @@ class ConvSequence(nn.Module):
                 self.glus.append(
                     nn.Sequential(
                         nn.Conv1d(chout, ch, 1 + 2 * glu_context, padding=glu_context), act))
+            # elif glu ==11:
             else:
                 self.glus.append(None)
 

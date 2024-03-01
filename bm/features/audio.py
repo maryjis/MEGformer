@@ -140,6 +140,8 @@ class _BaseWav2Vec(base.Feature, CaptureInit):
     event_kind = "sound"
     model_name = "facebook/wav2vec2-large-xlsr-53"
 
+    # 'patrickvonplaten/wav2vec2-large-960h-lv60-self-4-gram'
+
     def __init__(self, sample_rate: Frequency,
                  normalized: bool = True, random: bool = False,
                  device: str = "cpu") -> None:

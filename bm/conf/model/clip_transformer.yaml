@@ -16,6 +16,9 @@ simpletransformer:
   model_type: basic
   dim_ff: 2048
   attention_window: [32,32,32,32]
+  block_size: 16
+  num_random_blocks: 3
+  attention_type: block_sparse
 
 optim:
   loss: clip
