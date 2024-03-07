@@ -1,31 +1,3 @@
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/facebookresearch/brainmagick/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/facebookresearch/brainmagick/tree/main)
-
-# Decoding speech from non-invasive recordings of brain activity
-
-
-<p align="center">
-<img src="./logo.png"
-     alt="Schematic view of a brain, circled by a semi-conductor circuit."
-     width="300px"></p>
-
-
-This is the code for the [Decoding speech from non-invasive brain recordings][paper].
-paper, published in Nature Machine Intelligence in 2023 (also available on [arxiv][paper_arxiv]). 
-In this work, we present a novel method to perform high performance decoding
-of perceived speech from non invasive recordings. Inspired by [CLIP][clip], we use
-a contrastive loss between a learnt representation of the brain signals (EEG or MEG)
-and a representation ([Wav2vec 2.0][wav2vec2]) of candidate audio segments.
-
-We validate our approach on 4 datasets (2 with MEG, 2 with EEG), covering 175 volunteers
-and more than 160 hours of brain recordings. On the Gwilliams dataset, we achieve more than 41% top-1
-accuracy, meaning that we can identify exactly which sentence, and which word in that sentence,
-a subject is currently listening to, among more than 1300 candidates that were not seen at train time.
-
-<p align="center">
-<img src="./brainmagick.png"
-     alt="Structure of the decoding architecture, with a convolutional brain encoder,
-          the wav2vec2 audio encoder, and the contrastive loss."
-     width="500px"></p>
 
 
 ## What's new?
