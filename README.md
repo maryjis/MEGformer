@@ -65,5 +65,5 @@ The evaluation requires running a separate script. Once a grid is fully trained,
 you can run the evaluation on it with
 
 ```bash
-python -m scripts.run_eval_probs grid_name="main_table"
+python -m scripts.run_eval_probs grid_name="neuro_experiments_cnntransformer"
 ```
