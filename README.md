@@ -26,6 +26,24 @@ pip install -e .
 
 dora run download_only=true 'dset.selections=[gwilliams2022]'
 
+```
+
+### Grid files
+
+Larger scale experiments should be conducted within grid files. Grid files are defined in `bm/grids/` as normal python files. Define all the XP you want:
+
+If the file is called `bm/grids/mygrid.py`, run
+```bash
+dora grid mygrid
+
+
+### Grids for reproducing our paper
+
+The main results can be reproduced with `dora grid nmi.neuro_experiments_cnntransformer  --dry_run --init `.
+Checkout the [grids folder](./bm/grids/) for the available grids,
+
+
+```
 
 ## Training
 
@@ -40,43 +58,6 @@ complete with the one given on the command line.
 `--clear` will remove any existing XP folder, checkpoints etc.
 
 `[ARGS]` is a list of overrides for the Hydra config. See [conf/config.yaml](conf/config.yaml) for a list of all parameters.
-
-```
-
-### Grid files
-
-Larger scale experiments should be conducted within grid files. Grid files are defined in `bm/grids/` as normal python files. Define all the XP you want:
-
-If the file is called `bm/grids/mygrid.py`, run
-```bash
-dora grid mygrid
-```
-This will schedule all required XPs. If you change the experiments defined in the
-file, it will cancel any job that is no longer required, and schedule any new
-job required (e.g., you can cancel a job by commenting the corresponding line).
-
-Some useful flags:
-- `-r`: retry all failed or cancelled XPs.
-- `-C`: cancel all jobs.
-- `-T{IDX}`: trim all metrics to match the number of epochs of the XP
-	with the given index in the grid.
-- `-t{IDX}`: show the log from the XP with the given index in the grid.
-
-If you want to restart from scratch (you changed some important code), then either
-use the `dummy` parameter in the config in the top level `bind_()`, or use the `--clear` flag:
-```
-dora grid mygrad --clear
-```
-This will ask confirmation first, because this is quite a dangerous command!!
-
-### Grids for reproducing our paper
-
-The main results can be reproduced with `dora grid nmi.neuro_experiments_cnntransformer.py`.
-Checkout the [grids folder](./bm/grids/) for the available grids,
-
-
-
-```
 
 ## Evaluations
 
