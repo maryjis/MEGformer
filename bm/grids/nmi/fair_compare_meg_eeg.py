@@ -1,8 +1,4 @@
-# Copyright (c) Meta Platforms, Inc. and affiliates.
-# All rights reserved.
-#
-# This source code is licensed under the license found in the
-# LICENSE file in the root directory of this source tree.
+#.
 """Fair comparison between EEG and MEG by dropping channels / training data."""
 from itertools import product  # noqa
 from .._explorers import ClipExplorer
