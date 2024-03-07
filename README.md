@@ -69,27 +69,13 @@ dora grid mygrad --clear
 ```
 This will ask confirmation first, because this is quite a dangerous command!!
 
-**Git repository must be clean** when launching a grid. This is because Dora will
-store a clone of the repo at the current commit in order to isolate the XP from
-any future changes.
-
 ### Grids for reproducing our paper
 
-The main results can be reproduced with `dora grid nmi.main_table`.
+The main results can be reproduced with `dora grid nmi.neuro_experiments_cnntransformer.py`.
 Checkout the [grids folder](./bm/grids/) for the available grids,
-in particular the `nmi` subfolder. Running a grid requires a SLURM cluster.
 
-**Important trick:** Even if you do not have access to a SLURM cluster, you can run `dora grid nmi.main_table --dry_run --init`. This will initialize the database of experiments
-with the hyperparameters. Then you can easily run an experiment, e.g. for
-running the experiment on the Broderick dataset:
 
-```
-dora run -f 557f5f8a -d
-```
 
-The following command will prove useful for getting the signature for all 4 datasets:
-```
-dora grid nmi.main_table '!seed' '!features' '!wer_random` --dry_run --init
 ```
 
 ## Evaluations
@@ -100,43 +86,3 @@ you can run the evaluation on it with
 ```bash
 python -m scripts.run_eval_probs grid_name="main_table"
 ```
-
-If you are on a SLURM cluster, you can add `distributed="true"` to run the evals for
-each XP in a different job. The eval can take up to 30 min per XP.
-
-Finally, checkout the [notebook_templates](./notebook_templates) folder for reference
-on how to load the evaluations and reproduce the tables in our paper.
-
-## Tests
-
-Tests are configured to run upon pushing changes (configured with CircleCI).
-To run tests manually (all tests at bm/test_*py):
-
-```bash
-pytest bm
-```
-
-To run the linter, type checker and tests you can also just run
-```shell
-make
-```
-
-**Important:** All tests and linters must pass before we consider a PR.
-
-## Hiplot
-
-After training, you can use hiplot to plot metrics. First start the hiplot server with:
-```bash
-python -m hiplot dora.hiplot.load --port=XXXX
-```
-
-Then enter any number of grid names or XP sigs separated by ' '. Also specify the
-HiPlot Dora Explorer with `explorer=MainHP`, checkout `bm/grids/_hiplot.py` for more information.
-
-
-
-
-## Debug
-
-python -m debugpy --listen 0.0.0.0:5679 -m bm.train
-python -m  debugpy --listen 0.0.0.0:5679 -m scripts.run_eval_probs sigs=[342eaad6]
