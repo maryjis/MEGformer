@@ -11,7 +11,7 @@ conda activate bm
 conda install pytorch torchaudio cudatoolkit=11.3 -c pytorch -y
 pip install -U -r requirements.txt
 pip install -e .
-
+```
 
 ## Data & Studies
 
@@ -22,7 +22,7 @@ pip install -e .
 
 
 ### Load dataset
-
+```
 
 dora run download_only=true 'dset.selections=[gwilliams2022]'
 
@@ -35,7 +35,7 @@ Larger scale experiments should be conducted within grid files. Grid files are d
 If the file is called `bm/grids/mygrid.py`, run
 ```bash
 dora grid mygrid
-
+```
 
 ### Grids for reproducing our paper
 
