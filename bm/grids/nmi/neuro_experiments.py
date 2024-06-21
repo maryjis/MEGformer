@@ -36,6 +36,7 @@ def explorer(launcher):
             sub({'dset.tmin' : -0.75 , 'dset.tmax': 3.25})
             sub({'dset.tmin' : -1.25 , 'dset.tmax': 5.75})
             sub({'dset.tmin' : -1.75 , 'dset.tmax': 1.75})
+            sub({'dset.tmin' : -2.5 , 'dset.tmax': 7.5})
             sub({'optim.shuffle' : True})
             sub({'simpleconv.conv_dropout' : 0.2 , 'simpleconv.depth': 6})
             sub({'clip.probabilities': True})
@@ -70,3 +71,9 @@ def explorer(launcher):
             sub({'dset.condition': 3.0})
             sub({'is_sound': False})
             sub({'simpleconv.conv_dropout' : 0.2 , 'simpleconv.depth': 6, 'is_sound': True})
+            sub({'is_sound': False})
+            sub({'dset.tmin' : -2.5 , 'dset.tmax': 7.5, 'is_sound': True})
+            sub({'dset.tmin' : -1.25 , 'dset.tmax': 5.75, 'is_sound': True})
+            sub({'dset.tmin' : -0.75 , 'dset.tmax': 3.25, 'is_sound': True})
+            sub({'dset.tmin' : -1.0 , 'dset.tmax': 1.5, 'is_sound': True})
+            

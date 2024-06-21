@@ -22,9 +22,6 @@ optim:
   epochs: 200
   max_batches: 1200
   batch_size: 256
-  eps: 1e-09
-  lr: 0.001
-  beta2: 0.98
   scheduler: 
     name: None
     dim_embed: 270

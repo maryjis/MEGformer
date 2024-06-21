@@ -26,12 +26,18 @@ def explorer(launcher):
             sub = launcher.bind({'dset.selections': [dset],'dset.bandpass': True, 'dset.bandpass_high': 0.1, 'dset.bandpass_lower' : 40.0}, seed=seed)
             sub()
             sub({'is_sound': True})
-            sub({'is_sound': True})
+            sub({'is_sound': True, 'dset.tmin' : -1.25 , 'dset.tmax': 5.75})
+            sub({'is_sound': True, 'dset.tmin' : -1.0 , 'dset.tmax': 1.5})
+            sub({'is_sound': True, 'dset.tmin' : -0.75 , 'dset.tmax': 3.25, 'cnntransformer.depth' : 4,
+                 'cnntransformer.depth_transformer' : 3})
+            sub({'is_sound': True, 'dset.tmin' : -1.25 , 'dset.tmax': 5.75, 'cnntransformer.depth' : 4,
+                 'cnntransformer.depth_transformer' : 3})
             sub({ 'cnntransformer.depth' : 4,
                  'cnntransformer.conv_dropout' : 0.2})
             sub({ 'cnntransformer.depth' : 4,
                  'cnntransformer.conv_dropout' : 0.2})
             sub({ 'cnntransformer.depth' : 4,
                  'cnntransformer.depth_transformer' : 3})
+            sub({'is_sound': True, 'dset.tmin' : -1.25 , 'dset.tmax': 5.75, 'cnntransformer.seq_len': -1})
             
             

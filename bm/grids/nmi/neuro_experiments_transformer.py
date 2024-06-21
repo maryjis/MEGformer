@@ -48,3 +48,9 @@ def explorer(launcher):
             sub({'simpletransformer.subject_layers' : True, 'simpletransformer.positional_embedding': True, 'simpletransformer.depth' : 8, 
                  'simpletransformer.nhead' : 8, 'dset.tmin' : -0.75 , 'dset.tmax': 3.25, 'optim.scheduler.name' : 'TransformerScheduler'})
             
+            sub({'simpletransformer.subject_layers' : True, 'simpletransformer.positional_embedding': True, 'simpletransformer.depth' : 8, 'simpletransformer.nhead' : 8, 'is_sound' : True})
+            sub({'simpletransformer.subject_layers' : True, 'simpletransformer.positional_embedding': True, 'simpletransformer.depth' : 8, 
+                 'simpletransformer.nhead' : 8, 'optim.scheduler.name' : 'TransformerScheduler', 'is_sound' : True})
+            sub({'simpletransformer.subject_layers' : True, 'simpletransformer.positional_embedding': True,
+                 'simpletransformer.merger' : True, 'is_sound' : True})
+            

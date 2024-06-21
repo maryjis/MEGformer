@@ -28,7 +28,7 @@ cnntransformer:
   conv_dropout: 0.0
   kernel_size: [3,3,3,3,3,3,3,3,3,3]
   padding: [1,1,1,1,1,1,1,1,1,1]
-  seq_len: 361
+  seq_len: -1
   auto_padding: true
   is_deformable_conv: false
   in_channels_tranformer: 264

@@ -8,6 +8,7 @@ __pycache__
 .mypy_cache/
 /outputs
 /cache
+/cache_old
 /data
 /features_models
 full_example.TextGrid
