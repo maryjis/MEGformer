@@ -19,6 +19,7 @@ def explorer(launcher):
     )
     launcher.bind_({
         'model': 'clip_conv',
+        'feature_model' : 'conv_wave',
     })
 
     seeds = [2036, 2037, 2038]
@@ -29,17 +30,16 @@ def explorer(launcher):
     # Results from Table 2.
     with launcher.job_array():
         for seed, dset in product(seeds, audio_sets):
-            sub = launcher.bind({'dset.selections': [dset],'dset.bandpass': True, 'dset.bandpass_high': 0.1, 'dset.bandpass_lower' : 40.0}, seed=seed)
+            sub = launcher.bind({'dset.selections': [dset]}, seed=seed)
             sub()
             # sub({'optim.name': 'adamw', 'optim.weight_decay': 0.1})
-            sub({'dset.tmin' : -0.5 , 'dset.tmax': 2.5})
-            sub({'dset.tmin' : -0.75 , 'dset.tmax': 3.25 })
-            sub({'dset.tmin' : -1.25 , 'dset.tmax': 5.75})
-            sub({'dset.tmin' : -0.5 , 'dset.tmax': 9.5})
-            sub({'dset.tmin' : -1.75 , 'dset.tmax': 8.25})
-            # sub({'dset.tmin' : -1.75 , 'dset.tmax': 1.75})
-            # sub({'optim.shuffle' : True})
+            sub({'dset.tmin' : -0.5 , 'dset.tmax': 2.5, 'dset.bandpass': False, 'dset.bandpass': False, 'dset.bandpass_high': 0.1, 'dset.bandpass_lower' : 40.0,
+                  'simpleconv.flatten_out': True, 'simpleconv.complex_out': False, 'feature_model_params.dropout_value':0.3, 
+                  'feature_model_params.n_out_channels':32, 'simpleconv.flatten_out_channels':32,'simpleconv.conv_dropout':0.2, 'simpleconv.depth':6, 
+                  'feature_model_params.layers_block': True, 'feature_model_params.layers_number':1, 'feature_model_params.activation':"gelu", 
+                  'feature_model_params.layers_dropout':0.6})
 
+# 'dset.bandpass': False, 'dset.bandpass_high': 0.1, 'dset.bandpass_lower' : 40.0
 # -0.25 - 0.75 - 1c
 # -0.5 - 2.5 - 3c
 # -0.75 - 3.25 - 4c
