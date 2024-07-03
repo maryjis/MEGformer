@@ -37,15 +37,13 @@ If the file is called `bm/grids/mygrid.py`, run
 dora grid mygrid
 ```
 
-### Grids for reproducing our paper
+### Grids examples of using
 
 The main results can be reproduced with `dora grid nmi.neuro_experiments_cnntransformer  --dry_run --init `.
 Checkout the [grids folder](./bm/grids/) for the available grids,
 
 
-```
-
-## Training
+### Training
 
 To start training, from the root of the repository, run
 ```bash
@@ -66,4 +64,11 @@ you can run the evaluation on it with
 
 ```bash
 python -m scripts.run_eval_probs grid_name="neuro_experiments_cnntransformer"
+```
+
+### Reproduce MEGformer results on Gwilliams dataset on 3s segment
+```
+dora grid nmi.neuro_experiments_cnntransformer  --dry_run --init
+dora run -f c97c100b
+python -m scripts.run_eval_probs sigs=[c97c100b]
 ```
