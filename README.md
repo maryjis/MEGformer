@@ -13,7 +13,7 @@ pip install -U -r requirements.txt
 pip install -e .
 ```
 
-## Data & Studies
+## How is data loaded from different studies?
 
 
 - `audio_mous` (Scheffelen2019 in the paper): MEG, 273 sensors, 96 subjects, 80.9 hours, [reference](https://www.nature.com/articles/s41597-019-0020-y). 
@@ -27,6 +27,7 @@ pip install -e .
 dora run download_only=true 'dset.selections=[gwilliams2022]'
 
 ```
+## How do you run experiments?  
 
 ### Grid files
 
@@ -66,7 +67,9 @@ you can run the evaluation on it with
 python -m scripts.run_eval_probs grid_name="neuro_experiments_cnntransformer"
 ```
 
-## Reproduce MEGformer results on Gwilliams dataset on 3s segment
+## How are MEGformer results are reproduced?
+
+## on Gwilliams dataset on 3s segment
 ```
 dora grid nmi.neuro_experiments_cnntransformer  --dry_run --init
 dora run -f c97c100b
