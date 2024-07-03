@@ -1,5 +1,5 @@
 
-
+This is code for MEGFormer paper. In the current article, we proposed CNNTransformer approach for decoding preceived speech based on brain activity received from MEG.
 
 
 ## Requirements
