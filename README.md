@@ -69,7 +69,7 @@ python -m scripts.run_eval_probs grid_name="neuro_experiments_cnntransformer"
 
 ## How are MEGformer results are reproduced?
 
-## on Gwilliams dataset on 3s segment
+### on Gwilliams dataset on 3s segment
 ```
 dora grid nmi.neuro_experiments_cnntransformer  --dry_run --init
 dora run -f c97c100b
