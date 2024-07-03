@@ -57,7 +57,7 @@ complete with the one given on the command line.
 
 `[ARGS]` is a list of overrides for the Hydra config. See [conf/config.yaml](conf/config.yaml) for a list of all parameters.
 
-## Evaluations
+### Evaluations
 
 The evaluation requires running a separate script. Once a grid is fully trained,
 you can run the evaluation on it with
@@ -66,7 +66,7 @@ you can run the evaluation on it with
 python -m scripts.run_eval_probs grid_name="neuro_experiments_cnntransformer"
 ```
 
-### Reproduce MEGformer results on Gwilliams dataset on 3s segment
+## Reproduce MEGformer results on Gwilliams dataset on 3s segment
 ```
 dora grid nmi.neuro_experiments_cnntransformer  --dry_run --init
 dora run -f c97c100b
